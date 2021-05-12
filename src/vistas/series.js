@@ -1,14 +1,15 @@
 import { React, useState } from "react";
 
 
-const Series = () => {
-  return (
-    <>
-      <p>SOY las series</p>
 
-    
+
+const Series = () => {
+ return (
+    <>
+    <p>Soy las series</p>
     </>
+
   );
-};
+}
 
 export default Series;

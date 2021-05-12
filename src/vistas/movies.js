@@ -1,13 +1,15 @@
 import { React, useState } from "react";
 
 
-const Peliculas = () => {
-  return (
-    <>
-      <p>SOY las peliculas</p>
 
+
+const Peliculas = () => {
+ return (
+    <>
+    <p>Soy las peliculas</p>
     </>
+
   );
-};
+}
 
 export default Peliculas;
