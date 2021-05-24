@@ -1,12 +1,13 @@
 import { React } from "react";
 import useFetch from "../hooks.js/useFetch";
-import {
-  POPULAR_MOVIES,
-  TOP_RATED_MOVIES,
-  NOW_PLAYING_MOVIES,
-  UP_COMING_MOVIES,
-} from "../utils/variables.js";
+import {POPULAR_MOVIES, TOP_RATED_MOVIES, NOW_PLAYING_MOVIES, UP_COMING_MOVIES,} from "../utils/variables.js";
 import Section from "../components/section";
+import PopularMovies from '../vistas/vistas-secundarias/popular-movies'
+import NowPlayingMovies from '../vistas/vistas-secundarias/now-playing-movies'
+import TopRatedMovies from '../vistas/vistas-secundarias/top-rated-movies'
+import UpcomingMovies from '../vistas/vistas-secundarias/upcoming-movies'
+
+
 
 const Peliculas = () => {
   const populares = useFetch(POPULAR_MOVIES);
@@ -16,10 +17,13 @@ const Peliculas = () => {
 
   return (
     <>
-      <Section item={populares} title="Películas Populares" />
-      <Section item={mejores_criticas} title="Películas con mejores críticas" />
-      <Section item={estrenos} title="Películas a estrenarse" />
-      <Section item={en_cines} title="Películas en cines" />
+      <Section item={populares} title="Películas Populares" url="/movies/popular" comp={PopularMovies} />
+      <Section item={mejores_criticas} title="Películas con mejores críticas" url="/movies/top-rated" comp={TopRatedMovies} />
+      <Section item={estrenos} title="Películas a estrenarse" url="/movies/upcoming" comp={UpcomingMovies} />
+      <Section item={en_cines} title="Películas en cines" url="/movies/now-playing" comp={NowPlayingMovies} />
+
+      {/* <Section item={en_cines} title="Películas en cines" url="/movies/now-playing" comp={VistaCompleta} cont={NOW_PLAYING_MOVIES} /> */}
+
     </>
   );
 };
