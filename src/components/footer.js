@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React } from "react";
 
 
 
@@ -6,7 +6,7 @@ import { React, useState } from "react";
 const Footer = () => {
  return (
     <>
-    <p>SOY EL COMPONENTE FOOTER</p>
+    <p>FOOTER</p>
     </>
 
   );

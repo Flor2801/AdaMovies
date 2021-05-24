@@ -1,14 +1,15 @@
-import { React, useState } from "react";
-import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
+import { React } from "react";
+import { Link } from "react-router-dom";
 
 
 const Navegacion = () => {
+
   return (
     <>
       <div className="iconos">
-        <p>SOY la barra de navegacion</p>
+ 
         <p>
-          <Link to="/home">Home</Link>
+          <Link to="/">Home</Link>
         </p>
         <p>
           <Link to="/peliculas">Peliculas</Link>
@@ -16,6 +17,7 @@ const Navegacion = () => {
         <p>
           <Link to="/series">Series</Link>
         </p>
+        <p>Buscar</p><input type="text"></input>
 
       </div>
     </>

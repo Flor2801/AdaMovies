@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React } from "react";
 
 
 
@@ -6,7 +6,9 @@ import { React, useState } from "react";
 const Series = () => {
  return (
     <>
-    <p>Soy las series</p>
+    <p>SERIES POPULARES</p>
+    <p>SERIES CON MEJORES CRITICAS</p>
+    <p>SERIES AL AIRE</p>
     </>
 
   );
