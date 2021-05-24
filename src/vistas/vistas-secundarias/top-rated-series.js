@@ -1,12 +1,12 @@
 import { React } from "react";
 import useFetch from "../../hooks.js/useFetch";
 import { Link } from "react-router-dom";
-import {POPULAR_SERIES} from "../../utils/variables.js";
+import {TOP_RATED_SERIES} from "../../utils/variables.js";
 
 
 
-const PopularSeries = ({title}) => {
-  const peliculas = useFetch(POPULAR_SERIES);
+const TopRatedSeries = ({title}) => {
+  const peliculas = useFetch(TOP_RATED_SERIES);
 
   return (
     <>
@@ -24,4 +24,4 @@ const PopularSeries = ({title}) => {
   );
 };
 
-export default PopularSeries;
+export default TopRatedSeries;

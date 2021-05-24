@@ -1,12 +1,13 @@
 import { React } from "react";
-import { Link } from "react-router-dom";
 import useFetch from "../hooks.js/useFetch";
-import {
-  POPULAR_SERIES,
-  TOP_RATED_SERIES,
-  ON_THE_AIR_SERIES,
-} from "../utils/variables.js";
+import {POPULAR_SERIES, TOP_RATED_SERIES,ON_THE_AIR_SERIES } from "../utils/variables.js";
 import Section from "../components/section";
+import PopularSeries from '../vistas/vistas-secundarias/popular-series'
+import OnAirSeries from '../vistas/vistas-secundarias/on-the-air-series'
+import TopRatedSeries from '../vistas/vistas-secundarias/top-rated-series'
+
+
+
 
 const Series = () => {
   const populares = useFetch(POPULAR_SERIES);
@@ -16,9 +17,9 @@ const Series = () => {
 
   return (
     <>
-      <Section item={populares} title="Series Populares" />
-      <Section item={mejores_criticas} title="Series con mejores críticas" />
-      <Section item={al_aire} title="Series en el aire" />
+      <Section item={populares} title="Series Populares" url="/series/popular" comp={PopularSeries} />
+      <Section item={mejores_criticas} title="Series con mejores críticas" url="/series/top-rated" comp={TopRatedSeries} />
+      <Section item={al_aire} title="Series en el aire" url="/series/on-air" comp={OnAirSeries} />
     </>
   );
 };

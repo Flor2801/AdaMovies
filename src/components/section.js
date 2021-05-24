@@ -3,23 +3,24 @@ import { React } from "react";
 
 
 const Section = ({ item, title }) => {
-
- const array = [{numero:0}, {numero:1}, {numero:2}, {numero:3}]   
- const corto = array.slice(0,2)
-console.log(corto);
-
+  const array = item.slice(0, 5);
+  const titulo = title;
+  console.log(titulo);
 
   return (
     <>
-    
-    <section>
-    <Link ><p>{title}</p></Link>
-      
-      <div> 
-      {item.map(tarjeta => (
-         <p>{tarjeta.name}</p> 
-      ))}
-      </div>
+      <section>
+        <p>{title}</p>
+
+        <div>
+          {array.map((tarjeta) => (
+            <p>{tarjeta.name}</p>
+    //  {titulo = "Peliculas que son tendencia"  ?  <p>{tarjeta.title}</p>  :  <p>{tarjeta.name}</p>}
+          ))
+          
+          }
+          
+        </div>
       </section>
     </>
   );
