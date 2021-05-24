@@ -5,7 +5,7 @@ import {POPULAR_MOVIES} from "../../utils/variables.js";
 
 
 
-const PopularMovies = ({title}) => {
+const PopularMovies = () => {
   const peliculas = useFetch(POPULAR_MOVIES);
 
   return (
@@ -13,10 +13,10 @@ const PopularMovies = ({title}) => {
       <div>Hola soy peliculas populares</div>
 
       <section>
-          <p>{title}</p>
+          <p>PELICULAS POPULARES</p>
         <div>
           {peliculas.map((tarjeta) => (
-            <Link ><p>{tarjeta.name}</p></Link>
+            <Link ><p>{tarjeta.title}</p></Link>
           ))}
         </div>
       </section>
