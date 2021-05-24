@@ -18,7 +18,7 @@ const Section = ({ item, title, url, comp }) => {
         <div>
           {array.map((tarjeta) => (
             <p>{tarjeta.title}</p>
-            //  {titulo = "Peliculas que son tendencia"  ?  <p>{tarjeta.title}</p>  :  <p>{tarjeta.name}</p>}
+             {titulo = "Peliculas que son tendencia"  ?  <p>{tarjeta.title}</p>  :  <p>{tarjeta.name}</p>}
           ))}
         </div>
       </section>
