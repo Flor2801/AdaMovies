@@ -17,7 +17,6 @@ const Section = ({ item, title }) => {
             <p>{tarjeta.name}</p>
     //  {titulo = "Peliculas que son tendencia"  ?  <p>{tarjeta.title}</p>  :  <p>{tarjeta.name}</p>}
           ))
-          
           }
           
         </div>
