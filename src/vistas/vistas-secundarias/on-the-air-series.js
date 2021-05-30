@@ -10,7 +10,7 @@ const OnAirSeries = ({title}) => {
 
   return (
     <>
-      <div>Hola soy peliculas populares</div>
+      <div>Hola soy series en el aire</div>
 
       <section>
           <p>{title}</p>

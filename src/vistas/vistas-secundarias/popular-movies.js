@@ -16,7 +16,7 @@ const PopularMovies = () => {
           <p>PELICULAS POPULARES</p>
         <div>
           {peliculas.map((tarjeta) => (
-            <Link ><p>{tarjeta.name}</p></Link>
+            <Link ><p>{tarjeta.title}</p></Link>
           ))}
         </div>
       </section>

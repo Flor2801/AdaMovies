@@ -10,13 +10,14 @@ const PopularSeries = ({title}) => {
 
   return (
     <>
-      <div>Hola soy peliculas populares</div>
+      <div>Hola soy series populares </div>
 
       <section>
           <p>{title}</p>
         <div>
           {peliculas.map((tarjeta) => (
-            <Link ><p>{tarjeta.title}</p></Link>
+            <Link ><p>{tarjeta.name
+          }</p></Link>
           ))}
         </div>
       </section>

@@ -10,7 +10,7 @@ const TopRatedSeries = ({title}) => {
 
   return (
     <>
-      <div>Hola soy peliculas populares</div>
+      <div>Hola soy series mejor puntuadas</div>
 
       <section>
           <p>{title}</p>
