@@ -19,6 +19,8 @@ import PopularSeries from './vistas/vistas-secundarias/popular-series'
 import TopRatedSeries from './vistas/vistas-secundarias/top-rated-series'
 import OnAirSeries from './vistas/vistas-secundarias/on-the-air-series'
 
+import VistaDetalle from "./components/detalle";
+
 
 function App() {
 
@@ -43,6 +45,9 @@ function App() {
         <Route exact path="/series/populares" component={PopularSeries} />
         <Route exact path="/series/mejores-criticas" component={TopRatedSeries}  />
         <Route exact path="/series/en-el-aire" component={OnAirSeries} />
+
+        <Route  exact path={`/peliculas/:id`} component={VistaDetalle}/>
+        <Route  exact path={`/series/:id`} component={VistaDetalle}/>
 
 
         <Footer></Footer>

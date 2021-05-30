@@ -2,11 +2,9 @@ import { React } from "react";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 
 
-
-const Section = ({ item, title, url, comp }) => {
+const Section = ({ item, title, url}) => {
   const array = item.slice(0, 5);
   const titulo = title;
-  console.log(titulo);
 
   return (
     <>
@@ -25,9 +23,9 @@ const Section = ({ item, title, url, comp }) => {
         </div>
       </section>
 
-      <BrowserRouter>
+      {/* <BrowserRouter>
         <Route exact path={url} component={comp} />
-      </BrowserRouter>
+      </BrowserRouter> */}
     </>
   );
 };
