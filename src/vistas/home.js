@@ -6,6 +6,8 @@ import useFetch from "../hooks.js/useFetch";
 import TrendingMovies from '../vistas/vistas-secundarias/trending-movies'
 import TrendingSeries from '../vistas/vistas-secundarias/trending-series'
 
+
+
 const Home = () => {
   const peliculas = useFetch(TRENDING_MOVIES);
   const series = useFetch(TRENDING_SERIES);

@@ -8,7 +8,6 @@ import TopRatedSeries from '../vistas/vistas-secundarias/top-rated-series'
 
 
 
-
 const Series = () => {
   const populares = useFetch(POPULAR_SERIES);
   const mejores_criticas = useFetch(TOP_RATED_SERIES);
