@@ -9,43 +9,40 @@ const VistaDetalle = () => {
   const [videos, setVideos] = useState([]);
   const [similares, setSimilares] = useState([]);
 
-  const [vistaInfo, setVistaInfo] = useState(true)
-  const [vistaReparto, setVistaReparto] = useState(false)
-  const [vistaVideos, setVistaVideos] = useState(false)
-  const [vistaSimilares, setVistaSimilares] = useState(false)
-
-
+  const [vistaInfo, setVistaInfo] = useState(true);
+  const [vistaReparto, setVistaReparto] = useState(false);
+  const [vistaVideos, setVistaVideos] = useState(false);
+  const [vistaSimilares, setVistaSimilares] = useState(false);
 
   const verVistaInfo = () => {
-      setVistaInfo(true)
-      setVistaReparto(false)
-      setVistaVideos(false)
-      setVistaSimilares(false)
-  }
+    setVistaInfo(true);
+    setVistaReparto(false);
+    setVistaVideos(false);
+    setVistaSimilares(false);
+  };
 
   const verVistaReparto = () => {
-    setVistaInfo(false)
-    setVistaReparto(true)
-    setVistaVideos(false)
-    setVistaSimilares(false)
-}
+    setVistaInfo(false);
+    setVistaReparto(true);
+    setVistaVideos(false);
+    setVistaSimilares(false);
+  };
 
-const verVistaVideos = () => {
-    setVistaInfo(false)
-    setVistaReparto(false)
-    setVistaVideos(true)
-    setVistaSimilares(false)
-}
+  const verVistaVideos = () => {
+    setVistaInfo(false);
+    setVistaReparto(false);
+    setVistaVideos(true);
+    setVistaSimilares(false);
+  };
 
-const verVistaSimilares = () => {
-    setVistaInfo(false)
-    setVistaReparto(false)
-    setVistaVideos(false)
-    setVistaSimilares(true)
-}
+  const verVistaSimilares = () => {
+    setVistaInfo(false);
+    setVistaReparto(false);
+    setVistaVideos(false);
+    setVistaSimilares(true);
+  };
 
   const params = useParams();
-
 
   useEffect(() => {
     fetch(
@@ -69,7 +66,7 @@ const verVistaSimilares = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        setReparto(data);
+        setReparto(data.cast);
       });
 
     fetch(
@@ -77,7 +74,7 @@ const verVistaSimilares = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        setVideos(data);
+        setVideos(data.results);
       });
 
     fetch(
@@ -85,15 +82,14 @@ const verVistaSimilares = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        setSimilares(data);
+        setSimilares(data.results);
       });
   }, []);
 
-
-  console.log(detalle)
-  console.log(reparto)
-  console.log(videos)
-  console.log(similares)
+  console.log(detalle);
+  console.log(reparto);
+  console.log(videos);
+  console.log(similares);
 
   return (
     <>
@@ -115,17 +111,27 @@ const verVistaSimilares = () => {
               recaudacion produccion redes sociales
             </div>
           )}
-                    {vistaReparto && (
+          {vistaReparto && (
             <div>
-              reparto
+              {reparto.map((actores) => (
+                <p>{actores.name}</p>
+              ))}
             </div>
           )}
-                    {vistaSimilares && (
+                    {vistaVideos && (
             <div>
-            similares
+              {videos.map((videos) => (
+                <p>{videos.name}</p>
+              ))}
             </div>
           )}
-                 
+          {vistaSimilares && (
+            <div>
+              {similares.map((similar) => (
+                <p>{similar.title}</p>
+              ))}
+            </div>
+          )}
         </div>
       </section>
     </>
