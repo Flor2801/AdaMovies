@@ -3,8 +3,6 @@ import useFetch from "../../hooks.js/useFetch";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import { POPULAR_MOVIES } from "../../utils/variables.js";
 
-
-
 const PopularMovies = () => {
   const peliculas = useFetch(POPULAR_MOVIES);
   console.log(peliculas);
@@ -18,20 +16,17 @@ const PopularMovies = () => {
         <div>
           {peliculas.map((tarjeta) => (
             <>
-              <p>{tarjeta.title}</p>
-              <p>{tarjeta.id}</p>
               <Link to={`/peliculas/detalle/${tarjeta.id}`}>
-                <p>Link a detalle</p>
+                <img
+                  src={`https://image.tmdb.org/t/p/w200${tarjeta.poster_path}`}
+                ></img>
               </Link>
-
+              <p>{tarjeta.title}</p>
             </>
           ))}
         </div>
       </section>
       <div>PAGINADO</div>
-      
-
-
     </>
   );
 };

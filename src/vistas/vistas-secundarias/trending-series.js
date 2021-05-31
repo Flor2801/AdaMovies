@@ -6,17 +6,24 @@ import {TRENDING_SERIES} from "../../utils/variables.js";
 
 
 const TrendingSeries = ({title}) => {
-  const peliculas = useFetch(TRENDING_SERIES);
+  const series = useFetch(TRENDING_SERIES);
 
   return (
     <>
-      <div>Hola soy series que son tendencia</div>
+      <div>SERIES QUE SON TENDENCIA</div>
 
       <section>
           <p>{title}</p>
         <div>
-          {peliculas.map((tarjeta) => (
-            <Link ><p>{tarjeta.name}</p></Link>
+        {series.map((tarjeta) => (
+            <>
+              <Link to={`/series/detalle/${tarjeta.id}`}>
+                <img
+                  src={`https://image.tmdb.org/t/p/w200${tarjeta.poster_path}`}
+                ></img>{" "}
+              </Link>
+              <p>{tarjeta.name}</p>
+            </>
           ))}
         </div>
       </section>

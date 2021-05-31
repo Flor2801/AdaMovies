@@ -1,10 +1,11 @@
 import { React } from "react";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 
-
 const Section = ({ item, title, url}) => {
   const array = item.slice(0, 5);
   const titulo = title;
+
+
 
   return (
     <>
@@ -15,9 +16,11 @@ const Section = ({ item, title, url}) => {
 
         <div>
           {array.map((tarjeta) => (
+         
             <>
+            <img src={`https://image.tmdb.org/t/p/w200${tarjeta.poster_path}`}></img>
             <p>{tarjeta.title}</p>
-             {titulo === "Peliculas que son tendencia"  ?  <p>{tarjeta.title}</p>  :  <p>{tarjeta.name}</p>}
+             {titulo === "Peliculas"  ?  <p>{tarjeta.title}</p>  :  <p>{tarjeta.name}</p>}
              </>
           ))}
         </div>

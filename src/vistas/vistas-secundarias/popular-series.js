@@ -5,22 +5,23 @@ import { POPULAR_SERIES } from "../../utils/variables.js";
 
 const PopularSeries = ({ title }) => {
   const series = useFetch(POPULAR_SERIES);
-  console.log(series)
+  console.log(series);
 
   return (
     <>
-      <div>Hola soy series populares </div>
+      <div>SERIES POPULARES</div>
 
       <section>
         <p>{title}</p>
         <div>
           {series.map((tarjeta) => (
             <>
-              <p>{tarjeta.name}</p>
-              <p>{tarjeta.id}</p>
               <Link to={`/series/detalle/${tarjeta.id}`}>
-                <p>Link a detalle</p>
+                <img
+                  src={`https://image.tmdb.org/t/p/w200${tarjeta.poster_path}`}
+                ></img>{" "}
               </Link>
+              <p>{tarjeta.name}</p>
             </>
           ))}
         </div>

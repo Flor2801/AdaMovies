@@ -79,7 +79,7 @@ const VistaDetalleSeries = () => {
       });
 
     fetch(
-      `https://api.themoviedb.org/3/movie/${params.id}/similar?api_key=8cd74c1ce651a04254aaab08ea9e9585&&language=en-US`
+      `https://api.themoviedb.org/3/tv/${params.id}/similar?api_key=8cd74c1ce651a04254aaab08ea9e9585&&language=en-US`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -87,7 +87,7 @@ const VistaDetalleSeries = () => {
       });
 
       fetch(
-        `https://api.themoviedb.org/3/movie/${params.id}/images?api_key=8cd74c1ce651a04254aaab08ea9e9585&&language=en-US`
+        `https://api.themoviedb.org/3/tv/${params.id}/images?api_key=8cd74c1ce651a04254aaab08ea9e9585&&language=en-US`
       )
         .then((res) => res.json())
         .then((data) => {
@@ -142,7 +142,7 @@ const VistaDetalleSeries = () => {
           {vistaSimilares && (
             <div>
               {similares.map((similar) => (
-                <p>{similar.title}</p>
+                <p>{similar.name}</p>
               ))}
             </div>
           )}

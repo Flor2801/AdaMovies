@@ -1,28 +1,26 @@
 import { React } from "react";
 import useFetch from "../../hooks.js/useFetch";
 import { Link } from "react-router-dom";
-import {TOP_RATED_SERIES} from "../../utils/variables.js";
+import { TOP_RATED_SERIES } from "../../utils/variables.js";
 
-
-
-const TopRatedSeries = ({title}) => {
+const TopRatedSeries = ({ title }) => {
   const series = useFetch(TOP_RATED_SERIES);
 
   return (
     <>
-      <div>Hola soy series mejor puntuadas</div>
+      <div>SERIES MEJOR PUNTUADAS</div>
 
       <section>
-          <p>{title}</p>
+        <p>{title}</p>
         <div>
-        {series.map((tarjeta) => (
+          {series.map((tarjeta) => (
             <>
-              <p>{tarjeta.name}</p>
-              <p>{tarjeta.id}</p>
               <Link to={`/series/detalle/${tarjeta.id}`}>
-                <p>Link a detalle</p>
+                <img
+                  src={`https://image.tmdb.org/t/p/w200${tarjeta.poster_path}`}
+                ></img>{" "}
               </Link>
-
+              <p>{tarjeta.name}</p>
             </>
           ))}
         </div>

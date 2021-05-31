@@ -15,12 +15,12 @@ const UpcomingMovies = () => {
         <div>
         {peliculas.map((tarjeta) => (
             <>
-              <p>{tarjeta.title}</p>
-              <p>{tarjeta.id}</p>
               <Link to={`/peliculas/detalle/${tarjeta.id}`}>
-                <p>Link a detalle</p>
+                <img
+                  src={`https://image.tmdb.org/t/p/w200${tarjeta.poster_path}`}
+                ></img>
               </Link>
-
+              <p>{tarjeta.title}</p>
             </>
           ))}
         </div>

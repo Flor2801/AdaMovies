@@ -45,7 +45,7 @@ function App() {
 
         <Route exact path="/series/populares" component={PopularSeries} />
         <Route exact path="/series/mejores-criticas" component={TopRatedSeries}  />
-        <Route exact path="/series/en-el-aire" component={OnAirSeries} />
+        <Route exact path="/series/al-aire" component={OnAirSeries} />
 
         <Route  exact path={`/peliculas/detalle/:id`} component={VistaDetallePeliculas}/>
         <Route  exact path={`/series/detalle/:id`} component={VistaDetalleSeries}/>

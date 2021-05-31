@@ -1,22 +1,28 @@
 import { React } from "react";
 import useFetch from "../../hooks.js/useFetch";
 import { Link } from "react-router-dom";
-import {TRENDING_MOVIES} from "../../utils/variables.js";
+import { TRENDING_MOVIES } from "../../utils/variables.js";
 
-
-
-const TrendingMovies = ({title}) => {
+const TrendingMovies = ({ title }) => {
   const peliculas = useFetch(TRENDING_MOVIES);
+  console.log(peliculas)
 
   return (
     <>
-      <div>Hola soy peliculas que son tendencia</div>
+      <div>PELICULAS QUE SON TENDENCIA</div>
 
       <section>
-          <p>{title}</p>
+        <p>{title}</p>
         <div>
-          {peliculas.map((tarjeta) => (
-            <Link ><p>{tarjeta.title}</p></Link>
+        {peliculas.map((tarjeta) => (
+            <>
+              <Link to={`/peliculas/detalle/${tarjeta.id}`}>
+                <img
+                  src={`https://image.tmdb.org/t/p/w200${tarjeta.poster_path}`}
+                ></img>
+              </Link>
+              <p>{tarjeta.title}</p>
+            </>
           ))}
         </div>
       </section>

@@ -16,9 +16,9 @@ const Series = () => {
 
   return (
     <>
-      <Section item={populares} title="Series Populares" url="/series/populares" comp={PopularSeries} />
-      <Section item={mejores_criticas} title="Series con mejores críticas" url="/series/mejores-criticas" comp={TopRatedSeries} />
-      <Section item={al_aire} title="Series en el aire" url="/series/en-el-aire" comp={OnAirSeries} />
+      <Section item={populares} title="Series Populares" url="/series/populares" />
+      <Section item={mejores_criticas} title="Series con mejores críticas" url="/series/mejores-criticas"/>
+      <Section item={al_aire} title="Series al aire" url="/series/al-aire" />
     </>
   );
 };
