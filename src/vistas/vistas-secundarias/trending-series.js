@@ -10,7 +10,7 @@ const TrendingSeries = ({title}) => {
 
   return (
     <>
-      <div>Hola soy peliculas populares</div>
+      <div>Hola soy series que son tendencia</div>
 
       <section>
           <p>{title}</p>

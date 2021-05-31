@@ -6,7 +6,7 @@ import {ON_THE_AIR_SERIES} from "../../utils/variables.js";
 
 
 const OnAirSeries = ({title}) => {
-  const peliculas = useFetch(ON_THE_AIR_SERIES);
+  const series = useFetch(ON_THE_AIR_SERIES);
 
   return (
     <>
@@ -15,8 +15,15 @@ const OnAirSeries = ({title}) => {
       <section>
           <p>{title}</p>
         <div>
-          {peliculas.map((tarjeta) => (
-            <Link ><p>{tarjeta.name}</p></Link>
+        {series.map((tarjeta) => (
+            <>
+              <p>{tarjeta.name}</p>
+              <p>{tarjeta.id}</p>
+              <Link to={`/series/detalle/${tarjeta.id}`}>
+                <p>Link a detalle</p>
+              </Link>
+
+            </>
           ))}
         </div>
       </section>

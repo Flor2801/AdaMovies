@@ -18,8 +18,8 @@ const Home = () => {
     <>
       <Carrousel />
 
-      <Section item={peliculas} title="Peliculas que son tendencia" url="/peliculas/tendencia"/>
-      <Section item={series} title="Series que son tendencia" url="/series/tendencia"/>
+      <Section item={peliculas} title="Peliculas que son tendencia" url="/peliculas/tendencias"/>
+      <Section item={series} title="Series que son tendencia" url="/series/tendencias"/>
 
     </>
   );

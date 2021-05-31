@@ -2,7 +2,7 @@ import { React } from "react";
 import useFetch from "../../hooks.js/useFetch";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import { POPULAR_MOVIES } from "../../utils/variables.js";
-import VistaDetalle from "../../components/detalle";
+
 
 
 const PopularMovies = () => {
@@ -20,7 +20,7 @@ const PopularMovies = () => {
             <>
               <p>{tarjeta.title}</p>
               <p>{tarjeta.id}</p>
-              <Link to={`/peliculas/${tarjeta.id}`}>
+              <Link to={`/peliculas/detalle/${tarjeta.id}`}>
                 <p>Link a detalle</p>
               </Link>
 

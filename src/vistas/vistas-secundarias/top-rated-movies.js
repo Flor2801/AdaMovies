@@ -13,10 +13,15 @@ const TopRatedMovies = () => {
       <section>
         <p>PELICULAS MEJOR PUNTUADAS</p>
         <div>
-          {peliculas.map((tarjeta) => (
-            <Link>
+        {peliculas.map((tarjeta) => (
+            <>
               <p>{tarjeta.title}</p>
-            </Link>
+              <p>{tarjeta.id}</p>
+              <Link to={`/peliculas/detalle/${tarjeta.id}`}>
+                <p>Link a detalle</p>
+              </Link>
+
+            </>
           ))}
         </div>
       </section>

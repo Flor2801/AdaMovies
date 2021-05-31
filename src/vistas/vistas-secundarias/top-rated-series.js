@@ -6,7 +6,7 @@ import {TOP_RATED_SERIES} from "../../utils/variables.js";
 
 
 const TopRatedSeries = ({title}) => {
-  const peliculas = useFetch(TOP_RATED_SERIES);
+  const series = useFetch(TOP_RATED_SERIES);
 
   return (
     <>
@@ -15,8 +15,15 @@ const TopRatedSeries = ({title}) => {
       <section>
           <p>{title}</p>
         <div>
-          {peliculas.map((tarjeta) => (
-            <Link ><p>{tarjeta.name}</p></Link>
+        {series.map((tarjeta) => (
+            <>
+              <p>{tarjeta.name}</p>
+              <p>{tarjeta.id}</p>
+              <Link to={`/series/detalle/${tarjeta.id}`}>
+                <p>Link a detalle</p>
+              </Link>
+
+            </>
           ))}
         </div>
       </section>

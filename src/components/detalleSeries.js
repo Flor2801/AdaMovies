@@ -2,12 +2,13 @@ import { React, useEffect, useState } from "react";
 import useFetch from "../hooks.js/useFetch";
 import { Link, useParams } from "react-router-dom";
 
-const VistaDetalle = () => {
+const VistaDetalleSeries = () => {
   const [detalle, setDetalle] = useState([]);
   const [redesSociales, setRedesSociales] = useState([]);
   const [reparto, setReparto] = useState([]);
   const [videos, setVideos] = useState([]);
   const [similares, setSimilares] = useState([]);
+  const [imagenes, setImagenes] = useState([]);
 
   const [vistaInfo, setVistaInfo] = useState(true);
   const [vistaReparto, setVistaReparto] = useState(false);
@@ -46,7 +47,7 @@ const VistaDetalle = () => {
 
   useEffect(() => {
     fetch(
-      `https://api.themoviedb.org/3/movie/${params.id}?api_key=8cd74c1ce651a04254aaab08ea9e9585&&language=en-US`
+      `https://api.themoviedb.org/3/tv/${params.id}?api_key=8cd74c1ce651a04254aaab08ea9e9585&&language=en-US`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -54,7 +55,7 @@ const VistaDetalle = () => {
       });
 
     fetch(
-      `https://api.themoviedb.org/3/movie/${params.id}/external_ids?api_key=8cd74c1ce651a04254aaab08ea9e9585&&language=en-US`
+      `https://api.themoviedb.org/3/tv/${params.id}/external_ids?api_key=8cd74c1ce651a04254aaab08ea9e9585&&language=en-US`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -62,7 +63,7 @@ const VistaDetalle = () => {
       });
 
     fetch(
-      `https://api.themoviedb.org/3/movie/${params.id}/credits?api_key=8cd74c1ce651a04254aaab08ea9e9585&&language=en-US`
+      `https://api.themoviedb.org/3/tv/${params.id}/credits?api_key=8cd74c1ce651a04254aaab08ea9e9585&&language=en-US`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -70,7 +71,7 @@ const VistaDetalle = () => {
       });
 
     fetch(
-      `https://api.themoviedb.org/3/movie/${params.id}/videos?api_key=8cd74c1ce651a04254aaab08ea9e9585&&language=en-US`
+      `https://api.themoviedb.org/3/tv/${params.id}/videos?api_key=8cd74c1ce651a04254aaab08ea9e9585&&language=en-US`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -78,18 +79,23 @@ const VistaDetalle = () => {
       });
 
     fetch(
-      `https://api.themoviedb.org/3/movie/337404/similar?api_key=8cd74c1ce651a04254aaab08ea9e9585&&language=en-US`
+      `https://api.themoviedb.org/3/movie/${params.id}/similar?api_key=8cd74c1ce651a04254aaab08ea9e9585&&language=en-US`
     )
       .then((res) => res.json())
       .then((data) => {
         setSimilares(data.results);
       });
+
+      fetch(
+        `https://api.themoviedb.org/3/movie/${params.id}/images?api_key=8cd74c1ce651a04254aaab08ea9e9585&&language=en-US`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          setImagenes(data.posters);
+        });
+
   }, []);
 
-  console.log(detalle);
-  console.log(reparto);
-  console.log(videos);
-  console.log(similares);
 
   return (
     <>
@@ -107,8 +113,16 @@ const VistaDetalle = () => {
         <div>
           {vistaInfo && (
             <div>
-              titulo puntuacion descripcion duracion genero presupuesto
-              recaudacion produccion redes sociales
+              imagen {imagenes}
+              <p>titulo {detalle.name}</p>
+              <p> puntuacion  {detalle.vote_average}</p>
+              <p>descripcion  {detalle.overview}</p>
+              <p>duracion  {detalle.runtime} min.</p>
+              <p>genero</p>
+              <p>presupuesto ${detalle.budget}</p>
+              <p>recaudacion ${detalle.revenue}</p>
+              <p>produccion {detalle.title}</p>
+              <p>redes sociales</p>
             </div>
           )}
           {vistaReparto && (
@@ -118,7 +132,7 @@ const VistaDetalle = () => {
               ))}
             </div>
           )}
-                    {vistaVideos && (
+          {vistaVideos && (
             <div>
               {videos.map((videos) => (
                 <p>{videos.name}</p>
@@ -138,4 +152,4 @@ const VistaDetalle = () => {
   );
 };
 
-export default VistaDetalle;
+export default VistaDetalleSeries;
