@@ -16,7 +16,8 @@ const VistaDetallePeliculas = () => {
   const [vistaVideos, setVistaVideos] = useState(false);
   const [vistaSimilares, setVistaSimilares] = useState(false);
 
-  console.log(similares);
+
+
 
   const verVistaInfo = () => {
     setVistaInfo(true);
@@ -90,6 +91,7 @@ const VistaDetallePeliculas = () => {
       .then((data) => {
         setSimilares(data.results);
       });
+
   }, []);
 
   return (

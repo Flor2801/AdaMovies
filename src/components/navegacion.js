@@ -1,13 +1,10 @@
-import { React } from "react";
+import { React, useState } from "react";
 import { Link } from "react-router-dom";
 
-
 const Navegacion = () => {
-
   return (
     <>
       <div className="iconos">
- 
         <p>
           <Link to="/">Home</Link>
         </p>
@@ -17,8 +14,8 @@ const Navegacion = () => {
         <p>
           <Link to="/series">Series</Link>
         </p>
-        <p>Buscar</p><input type="text"></input>
-
+        <p>Buscar</p>
+        <input type="text"></input>
       </div>
     </>
   );
