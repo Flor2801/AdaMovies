@@ -17,10 +17,10 @@ const Peliculas = () => {
 
   return (
     <>
-      <Section item={populares} title="Películas Populares" url="/peliculas/populares" />
-      <Section item={mejores_criticas} title="Películas con mejores críticas" url="/peliculas/mejores-criticas" />
-      <Section item={estrenos} title="Películas a estrenarse" url="/peliculas/a-estrenarse" />
-      <Section item={en_cines} title="Películas en cines" url="/peliculas/en-cines" />
+      <Section item={populares} title="Películas Populares" url="/peliculas/populares" tipo="Peliculas"/>
+      <Section item={mejores_criticas} title="Películas con mejores críticas" url="/peliculas/mejores-criticas" tipo="Peliculas" />
+      <Section item={estrenos} title="Películas a estrenarse" url="/peliculas/a-estrenarse" tipo="Peliculas" />
+      <Section item={en_cines} title="Películas en cines" url="/peliculas/en-cines"  tipo="Peliculas"/>
 
       {/* <Section item={en_cines} title="Películas en cines" url="/movies/now-playing" comp={VistaCompleta} cont={NOW_PLAYING_MOVIES} /> */}
 

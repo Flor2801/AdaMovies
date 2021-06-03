@@ -1,11 +1,9 @@
 import { React } from "react";
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const Section = ({ item, title, url}) => {
+const Section = ({ item, title, url, tipo }) => {
   const array = item.slice(0, 5);
-  const titulo = title;
-
-
+  const peliculaOserie = tipo;
 
   return (
     <>
@@ -16,19 +14,16 @@ const Section = ({ item, title, url}) => {
 
         <div>
           {array.map((tarjeta) => (
-         
             <>
-            <img src={`https://image.tmdb.org/t/p/w200${tarjeta.poster_path}`}></img>
-            <p>{tarjeta.title}</p>
-             {titulo === "Peliculas"  ?  <p>{tarjeta.title}</p>  :  <p>{tarjeta.name}</p>}
-             </>
+              {peliculaOserie == "Peliculas" ? <Link to={`/peliculas/detalle/${tarjeta.id}`}><img src={`https://image.tmdb.org/t/p/w200${tarjeta.poster_path}`}></img></Link>
+               : <Link to={`/series/detalle/${tarjeta.id}`}><img src={`https://image.tmdb.org/t/p/w200${tarjeta.poster_path}`}></img></Link>}
+
+              {peliculaOserie == "Peliculas" ? (<p>{tarjeta.title}</p>) : (<p>{tarjeta.name}</p>)}
+            </>
           ))}
         </div>
       </section>
 
-      {/* <BrowserRouter>
-        <Route exact path={url} component={comp} />
-      </BrowserRouter> */}
     </>
   );
 };

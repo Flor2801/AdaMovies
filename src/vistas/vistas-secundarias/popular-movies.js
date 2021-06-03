@@ -1,15 +1,14 @@
-import { React } from "react";
+import { React, useEffect } from "react";
 import useFetch from "../../hooks.js/useFetch";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import { POPULAR_MOVIES } from "../../utils/variables.js";
 
 const PopularMovies = () => {
   const peliculas = useFetch(POPULAR_MOVIES);
-  console.log(peliculas);
+  
 
   return (
     <>
-      <div>Hola soy peliculas populares</div>
 
       <section>
         <p>PELICULAS POPULARES</p>

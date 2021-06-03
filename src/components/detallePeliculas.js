@@ -16,7 +16,7 @@ const VistaDetallePeliculas = () => {
   const [vistaVideos, setVistaVideos] = useState(false);
   const [vistaSimilares, setVistaSimilares] = useState(false);
 
-  console.log(videos);
+  console.log(similares);
 
   const verVistaInfo = () => {
     setVistaInfo(true);
@@ -145,17 +145,11 @@ const VistaDetallePeliculas = () => {
                     <p>WEB</p>
                   </a>
                 )}
-                {redes.imdb_id && <p>IMDB</p>}
-                {redes.twitter_id && <p>TWITTER</p>}
-                {redes.facebook_id && <p>FACEBOOK</p>}
-                {redes.instagram_id && (
-                  <a
-                    href={`https://www.instagram.com/${redes.instagram_id}`}
-                    target="_blank"
-                  >
-                    <p>INSTAGRAM</p>
-                  </a>
-                )}
+                {detalle.homepage && (<a href={`${detalle.homepage}`} target="_blank"><p>WEB</p></a>)}
+                {redes.imdb_id && <a href={`https://www.imdb.com/title/${redes.imdb_id}`} target="_blank"><p>IMDB</p></a>}
+                {redes.twitter_id && <a href={`https://twitter.com/${redes.twitter_id}`} target="_blank"><p>TW</p></a>}
+                {redes.facebook_id && <a href={`https://www.facebook.com/${redes.facebook_id}`} target="_blank"><p>FB</p></a>}
+                {redes.instagram_id && <a href={`https://www.instagram.com/${redes.instagram_id}`} target="_blank"><p>IG</p></a>}
               </div>
             </div>
           )}
@@ -176,7 +170,7 @@ const VistaDetallePeliculas = () => {
           )}
           {vistaVideos && (
             <div>
-  <a
+                 <a
                     href={`https://www.youtube.com/watch?v=jBa_aHwCbC4`}
                     target="_blank"
                   >
