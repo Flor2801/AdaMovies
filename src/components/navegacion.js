@@ -1,32 +1,30 @@
 import { React, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory, useParams, useLocation  } from "react-router-dom";
+
+
+
 
 const Navegacion = () => {
 
-  
- const [value, setValue] = useState('')
+ const [valorDelInput, setValorDelInput] = useState('')
 
+ const history = useHistory();
 
  const busquedaTexto = (e) => {
- enviarTexto(value)
- setValue(e.target.value)
+ setValorDelInput(e.target.value)
  }
 
+ const mostrarResultados = () => {
+   history.push(`/busqueda/${valorDelInput}`)
+  }
 
   return (
     <>
       <div className="iconos">
-        <p>
-          <Link to="/">Home</Link>
-        </p>
-        <p>
-          <Link to="/peliculas">Peliculas</Link>
-        </p>
-        <p>
-          <Link to="/series">Series</Link>
-        </p>
-        <p>Buscar</p>
-        <input type="text" onChange={busquedaTexto}></input>
+        <p><Link to="/">Home</Link></p>
+        <p><Link to="/peliculas">Peliculas</Link></p>
+        <p><Link to="/series">Series</Link></p>
+        <form><p>Buscar</p><input type="text" value={valorDelInput} onChange={busquedaTexto} onSubmit={mostrarResultados}></input></form>
       </div>
     </>
   );

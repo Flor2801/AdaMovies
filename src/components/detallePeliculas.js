@@ -18,7 +18,6 @@ const VistaDetallePeliculas = () => {
 
 
 
-
   const verVistaInfo = () => {
     setVistaInfo(true);
     setVistaReparto(false);
@@ -48,6 +47,7 @@ const VistaDetallePeliculas = () => {
   };
 
   const params = useParams();
+  console.log(params)
 
   useEffect(() => {
     fetch(

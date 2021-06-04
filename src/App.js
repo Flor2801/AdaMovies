@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Route } from "react-router-dom";
-import { React } from "react";
+import { React, useEffect, useState } from "react";
 // Vistas Principales
 import Movies from "./vistas/movies";
 import Series from "./vistas/series";
@@ -21,6 +21,8 @@ import OnAirSeries from './vistas/vistas-secundarias/on-the-air-series'
 
 import VistaDetallePeliculas from "./components/detallePeliculas";
 import VistaDetalleSeries from "./components/detalleSeries";
+
+import VistaResultadosBusqueda from "./vistas/vistaResultadoBusqueda";
 
 
 function App() {
@@ -50,6 +52,7 @@ function App() {
         <Route  exact path={`/peliculas/detalle/:id`} component={VistaDetallePeliculas}/>
         <Route  exact path={`/series/detalle/:id`} component={VistaDetalleSeries}/>
 
+        <Route  exact path={`/busqueda/:query`} component={VistaResultadosBusqueda}/>
 
         <Footer></Footer>
       </BrowserRouter>
