@@ -1,15 +1,17 @@
 import { React, useState, useEffect } from "react";
 import useFetch from "../hooks.js/useFetch";
 import Section from "../components/section";
-import { Link, useHistory, useParams } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 
 
 const VistaResultadoBusqueda = () => {
 
   const [resultado, setResultado] = useState([])
-
-  const history = useHistory();
   const params = useParams();
+  const location = useLocation();
+
+  console.log(params)
+  console.log(location)
 
  
 useEffect(() => {
@@ -19,24 +21,24 @@ useEffect(() => {
   )
     .then((res) => res.json())
     .then((data) => {
-      setResultado(data);
+      setResultado(data.results);
     });
-}, []);
+}, [resultado]);
 
-console.log(resultado)
+// console.log(resultado)
 
   return (
     <>
       <section>
         <p>RESULTADOS BUSQUEDA</p>
         <div>
-          {/* {resultado.map((resultado) => (
+          {resultado.map((resultado) => (
             <>
               <img
                 src={`https://image.tmdb.org/t/p/w200${resultado.poster_path}`}
               ></img>
             </>
-          ))} */}
+          ))}
         </div>
       </section>
     </>
