@@ -34,9 +34,12 @@ useEffect(() => {
         <div>
           {resultado.map((resultado) => (
             <>
-              <img
-                src={`https://image.tmdb.org/t/p/w200${resultado.poster_path}`}
-              ></img>
+                <Link to={`/peliculas/detalle/${resultado.id}`}>
+                <img
+                  src={`https://image.tmdb.org/t/p/w200${resultado.poster_path}`}
+                ></img>
+              </Link>
+              <p>{resultado.title}</p>
             </>
           ))}
         </div>
