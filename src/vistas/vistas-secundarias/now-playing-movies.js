@@ -24,6 +24,7 @@ const NowPlayingMovies = () => {
             </>
           ))}
         </div>
+       
       </section>
     </>
   );
