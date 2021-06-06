@@ -1,16 +1,14 @@
 import { React, useEffect, useState } from "react";
-import useFetch from "../../hooks.js/useFetch";
-import { BrowserRouter, Route, Link } from "react-router-dom";
-import { POPULAR_MOVIES } from "../../utils/variables.js";
+import { Link } from "react-router-dom";
+
 
 const PopularMovies = () => {
-  const peliculas = useFetch(POPULAR_MOVIES);
+
   let paginaActual = 1;
   const paginaDos = paginaActual+1;
   const paginaTres = paginaDos+1;
   const [detallePopulares, setDetallePopulares] = useState([]);
   const [paginasPopulares, setPaginasPopulares] = useState([]);
-
   const cantidadPaginasPopulares = Number(paginasPopulares);
   const arrayPaginas = [];
 
@@ -23,14 +21,13 @@ const PopularMovies = () => {
 
 
 
-
   useEffect(() => {
     fetch(
       `https://api.themoviedb.org/3/movie/popular?api_key=8cd74c1ce651a04254aaab08ea9e9585&language=en-US&page=${paginaActual}`
     )
       .then((res) => res.json())
       .then((data) => {
-        setDetallePopulares(data);
+        setDetallePopulares(data.results);
         setPaginasPopulares(data.total_pages);
       });
   }, [paginaActual]);
@@ -40,7 +37,7 @@ const PopularMovies = () => {
       <section>
         <p>PELICULAS POPULARES</p>
         <div>
-          {peliculas.map((tarjeta) => (
+          {detallePopulares.map((tarjeta) => (
             <>
               <Link to={`/peliculas/detalle/${tarjeta.id}`}>
                 <img
