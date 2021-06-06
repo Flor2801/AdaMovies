@@ -2,6 +2,7 @@ import { React, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 
+
 const PopularMovies = () => {
 
   const [paginaActual, setPaginaActual] = useState(1);
@@ -39,6 +40,7 @@ const PopularMovies = () => {
         </div>
       </section>
 
+
       <div>
    
         <button onClick={() => setPaginaActual(1)}>PRIMERA</button>
@@ -52,7 +54,8 @@ const PopularMovies = () => {
 
         <button>...</button>
 
-        <button onClick={() => paginaActual == cantidadPaginasPopulares ? setPaginaActual(cantidadPaginasPopulares) : setPaginaActual(paginaActual-1)}>PROXIMA</button>
+        <button onClick={() => paginaActual == cantidadPaginasPopulares ? setPaginaActual(cantidadPaginasPopulares)
+         : setPaginaActual(paginaActual-1)}>PROXIMA</button>
         <button onClick={() => setPaginaActual(cantidadPaginasPopulares)}>ULTIMA</button>
 
       </div>
