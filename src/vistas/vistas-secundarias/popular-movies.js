@@ -4,21 +4,10 @@ import { Link } from "react-router-dom";
 
 const PopularMovies = () => {
 
-  let paginaActual = 1;
-  const paginaDos = paginaActual+1;
-  const paginaTres = paginaDos+1;
+  const [paginaActual, setPaginaActual] = useState(1);
   const [detallePopulares, setDetallePopulares] = useState([]);
   const [paginasPopulares, setPaginasPopulares] = useState([]);
   const cantidadPaginasPopulares = Number(paginasPopulares);
-  const arrayPaginas = [];
-
-  const crearArray = (cantidadPaginasPopulares) => {
-    for (let i = 1; i < cantidadPaginasPopulares; i++) {
-    arrayPaginas.push([i]); } 
-    return arrayPaginas;
-  };
-  crearArray(cantidadPaginasPopulares);
-
 
 
   useEffect(() => {
@@ -52,19 +41,19 @@ const PopularMovies = () => {
 
       <div>
    
-        <button onClick={() => paginaActual = 1}>PRIMERA</button>
-        <button onClick={() => paginaActual = paginaActual-1}>ANTERIOR</button>
+        <button onClick={() => setPaginaActual(1)}>PRIMERA</button>
+        <button onClick={() => paginaActual==1 ? setPaginaActual(1) : setPaginaActual(paginaActual-1)}>ANTERIOR</button>
 
-        <button>{paginaActual}</button>
+        <button>{paginaActual}</button> 
 
-        <button onClick={() => paginaActual = paginaActual+1}>{paginaDos}</button>
-        <button onClick={() => paginaActual = paginaActual+2}>{paginaTres}</button>
+        <button onClick={() => setPaginaActual(paginaActual+1)}> {paginaActual+1} </button>
+        <button onClick={() => setPaginaActual(paginaActual+2)}>{paginaActual+2}</button>
+        <button onClick={() => setPaginaActual(paginaActual+3)}>{paginaActual+3}</button>
 
         <button>...</button>
 
-        <button onClick={() => paginaActual = paginaActual+1}>PROXIMA</button>
-        <button onClick={() => paginaActual = cantidadPaginasPopulares}>ULTIMA</button>
-
+        <button onClick={() => paginaActual == cantidadPaginasPopulares ? setPaginaActual(cantidadPaginasPopulares) : setPaginaActual(paginaActual-1)}>PROXIMA</button>
+        <button onClick={() => setPaginaActual(cantidadPaginasPopulares)}>ULTIMA</button>
 
       </div>
     </>
