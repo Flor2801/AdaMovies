@@ -1,5 +1,4 @@
 import { React, useEffect, useState } from "react";
-import useFetch from "../hooks.js/useFetch";
 import { Link, useParams } from "react-router-dom";
 
 const VistaDetallePeliculas = () => {

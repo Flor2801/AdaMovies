@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Route } from "react-router-dom";
-import { React, useEffect, useState } from "react";
+import { React } from "react";
 // Vistas Principales
 import Movies from "./vistas/movies";
 import Series from "./vistas/series";
