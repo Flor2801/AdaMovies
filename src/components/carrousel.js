@@ -1,24 +1,23 @@
 import React from "react";
-// import Slider from "infinite-react-carousel";
-import Carousel from 'react-elastic-carousel';
 import { TRENDING_MOVIES } from "../utils/variables.js";
 import useFetch from "../hooks.js/useFetch";
+import AwesomeSlider from 'react-awesome-slider';
+import 'react-awesome-slider/dist/styles.css'
 
-const SimpleSlider = () => {
+
+const Slider = () => {
   const peliculasCarrousel = useFetch(TRENDING_MOVIES);
   const arrayCarrousel = peliculasCarrousel.slice(0, 5);
-  console.log(arrayCarrousel)
+ 
+
 
   return (
     <>
-      <Carousel >
-      {arrayCarrousel.length && arrayCarrousel.map((preview) => (
+      <AwesomeSlider >
+      {arrayCarrousel.map((preview) => (
           <>
             <div> 
-       
-             <img
-                src={`https://image.tmdb.org/t/p/w500${preview.backdrop_path}`}
-              ></img> 
+             <img src={`https://image.tmdb.org/t/p/original${preview.backdrop_path}`}></img> 
          </div>
          <div>
               <p>{preview.vote_average}</p>
@@ -32,10 +31,10 @@ const SimpleSlider = () => {
           
           </>
         ))}
-        </Carousel>
+        </AwesomeSlider>
 
     </>
   );
 };
 
-export default SimpleSlider;
+export default Slider;
