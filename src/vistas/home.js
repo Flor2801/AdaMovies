@@ -1,7 +1,8 @@
 import { React, useState, useEffect } from "react";
-import Section from "../components/section";
 import { TRENDING_MOVIES, TRENDING_SERIES } from "../utils/variables.js";
+import Section from "../components/section";
 import useFetch from "../hooks.js/useFetch";
+import Slider from "../components/carrousel";
 
 
 
@@ -13,7 +14,9 @@ const Home = () => {
 
   return (
     <>
-      
+      ´
+      <Slider />
+
       <Section item={peliculas} title="Peliculas que son tendencia" url="/peliculas/tendencias" tipo="Peliculas" />
       <Section item={series} title="Series que son tendencia" url="/series/tendencias" tipo="Series"/> 
 
