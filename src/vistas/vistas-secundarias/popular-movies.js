@@ -1,5 +1,7 @@
 import { React, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Paginado from "../../components/paginado";
+
 
 
 
@@ -11,6 +13,10 @@ const PopularMovies = () => {
   const cantidadPaginasPopulares = Number(paginasPopulares);
 
 
+  const cambiarPaginaLocal = (paginaComponente) => {
+   setPaginaActual(paginaComponente)
+  }
+  
   useEffect(() => {
     fetch(
       `https://api.themoviedb.org/3/movie/popular?api_key=8cd74c1ce651a04254aaab08ea9e9585&language=en-US&page=${paginaActual}`
@@ -22,9 +28,11 @@ const PopularMovies = () => {
       });
   }, [paginaActual]);
 
+
   return (
     <>
       <section>
+        <Paginado pagina={paginaActual} total={cantidadPaginasPopulares} funcion={cambiarPaginaLocal}></Paginado>
         <p>PELICULAS POPULARES</p>
         <div>
           {detallePopulares.map((tarjeta) => (
@@ -41,7 +49,8 @@ const PopularMovies = () => {
       </section>
 
 
-      <div>
+
+    {/* <div>
    
         <button onClick={() => setPaginaActual(1)}>PRIMERA</button>
         <button onClick={() => paginaActual==1 ? setPaginaActual(1) : setPaginaActual(paginaActual-1)}>ANTERIOR</button>
@@ -58,7 +67,7 @@ const PopularMovies = () => {
          : setPaginaActual(paginaActual-1)}>PROXIMA</button>
         <button onClick={() => setPaginaActual(cantidadPaginasPopulares)}>ULTIMA</button>
 
-      </div>
+      </div>  */}
     </>
   );
 };
