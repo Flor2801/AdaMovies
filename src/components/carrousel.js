@@ -1,5 +1,6 @@
 import React from "react";
-import Slider from "infinite-react-carousel";
+// import Slider from "infinite-react-carousel";
+import Carousel from 'react-elastic-carousel';
 import { TRENDING_MOVIES } from "../utils/variables.js";
 import useFetch from "../hooks.js/useFetch";
 
@@ -10,8 +11,8 @@ const SimpleSlider = () => {
 
   return (
     <>
-      <Slider dots>
-        {arrayCarrousel.map((preview) => (
+      <Carousel >
+      {arrayCarrousel.length && arrayCarrousel.map((preview) => (
           <>
             <div> 
        
@@ -31,7 +32,7 @@ const SimpleSlider = () => {
           
           </>
         ))}
-        </Slider>
+        </Carousel>
 
     </>
   );
