@@ -1,80 +1,31 @@
 import styled from "styled-components";
 
 
-
-
-export const Navegacion = styled.div`
-  height: 80px;
-  margin: 50px 50px;
-  background-color: #23272a;
-  position: relative;
-  z-index: 10;
-  h3 {
-    font-size: 20px;
-    text-decoration: none;
-    color: white;
-  }
-`;
-
-
-
-export const SliderImagen = styled.div`
-  position: relative;
-
-  .imagen-carrousel {
-    height: 650px;
-    img {
-        width: 100%;
-        height: 100%,
-    }
-  }
-
-  .texto-carrousel {
-    width: 100%;
-    height: 250px;
-    position: relative;
-    bottom: 50px;
-    color: white;
-    background-color: #23272a;
-    display: flex;
-    flex-direction: column;
-
-    .carrousel-ranking {
-       margin-left: 40px;
-       height: 50px;
-    }
-
-    .carrousel-titulo {
-        font-size: 30px;
-        height: 100px;
-        margin-left: 40px;
-    }
-    .carrousel-descripcion {
-        font-size: 12px;
-        height: 100px;
-        margin-left: 40px;
-    }
-  }
- 
-`;
-
 export const Seccion = styled.section`
   width: 90%;
-  margin: 50px 50px;
+  margin: 60px 0px 0px 50px;
+  font-family: "Montserrat", sans-serif;
 
   h3 {
-    font-size: 20px;
+    font-size: 25px;
+    font-weight: 300;
     text-decoration: none;
     color: white;
+    margin-bottom: 10px;
+    margin: 20px 0px 0px 35px;
+  }
+
+  a {
+    text-decoration: none;
   }
 `;
 
 export const Container = styled.div`
+  height: 400px;
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
-  margin-left: 0px;
+  margin: 0px 0px 0px 0px;
 `;
 
 export const Tarjeta = styled.div`
@@ -82,73 +33,144 @@ export const Tarjeta = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  margin: 50px 30px 10px 0px;
+  margin: 40px 30px 10px 0px;
 
   .titulo {
     height: 40px;
   }
 
-  p {
-    max-width: 150px;
-    font-size: 15px;
+  h4 {
+    max-width: 180px;
+    font-size: 12px;
+    font-weight: 500;
     margin: 2px;
     color: white;
   }
+
+  .vacio {
+      width: 200;
+      height: 300px;
+      bacgroundcolor: white;
+  }
 `;
 
-
 export const SeccionGeneral = styled.section`
- display: flex;
- flex-direction:column;
- margin: 50px;
+  display: flex;
+  flex-direction: column;
+  margin: 50px;
+  font-family: "Montserrat", sans-serif;
 
- h3 {
-    font-size: 20px;
+  h3 {
+    font-size: 25px;
+    font-weight: 300;
     text-decoration: none;
     color: white;
+    margin-bottom: 10px;
   }
 
- .vista-tarjetas {
+  .vista-tarjetas {
     display: flex;
     flex-wrap: wrap;
     justify-content: stretch;
     flex-shrink: 3;
+  }
 
- }
-
- .tarjeta {
-    display: flex;
-    flex-direction:column;
-    margin: 10px;
- }
-
-
- .Paginado {
-
+  .Paginado {
     div {
-    padding: 100px 0 0 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+      padding: 100px 0 0 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-
-    button {
-        border:none;
+      button {
+        border: none;
         margin: 10px;
         background-color: #36393f;
         color: white;
         font-size: 20px;
+      }
+
+      .pagina-actual {
+        background-color: grey;
+        padding: 10px;
+      }
+    }
+  }
+`;
+
+export const ImagenDetalle = styled.div`
+  height: 400px;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+
+  img {
+    width: 100%;
+    position: relative;
+    top: -120px;
+  }
+`;
+
+export const InformacionDetalle = styled.div`
+  .variables-detalle-secciones {
+    font-family: "Montserrat", sans-serif;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button {
+      border: none;
+      margin: 10px;
+      background-color: #36393f;
+      color: white;
+      font-size: 15px;
+      font-weight: 500;
+    }
+  }
+
+  .variables-detalle-vistas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .variables-detalle-info {
+    width: 700px;
+    height: 500px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    .variables-detalle-info-img {
+      margin-right: 30px;
     }
 
-.pagina-actual {
-    background-color: grey;
-    padding: 10px;
-}
+    .variables-detalle-info-txt {
+      color: white;
 
-}
+      p {
+        font-family: "Montserrat", sans-serif;
+        font-size: 12px;
+      }
 
- }
+      span {
+          margin: 0px 10px 0px 10px; 
+      }
 
+      h4 {
+        font-size: 25px;
+        font-weight: 300;
+        margin-top: 0px;
+      }
+    }
+  }
+`;
+
+export const VistaActores = styled.section`
+  margin: 10px 20px 0px 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; 
 `;
 
 export const PieDePagina = styled.div`
@@ -163,5 +185,7 @@ export const PieDePagina = styled.div`
   p {
     color: white;
     font-size: 15px;
+    font-weight: 300;
+    font-family: "Montserrat", sans-serif;
   }
 `;

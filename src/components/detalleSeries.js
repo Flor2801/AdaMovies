@@ -1,5 +1,9 @@
 import { React, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { ImagenDetalle } from "../components/commons.js";
+import { InformacionDetalle } from "../components/commons.js";
+import { VistaActores } from "../components/commons.js";
+import { Tarjeta } from "../components/commons.js";
 
 const VistaDetalleSeries = () => {
   const [detalle, setDetalle] = useState([]);
@@ -10,6 +14,8 @@ const VistaDetalleSeries = () => {
   const [cantidadTemporadas, setCantidadTemporadas] = useState([]);
   const [generos, setGeneros] = useState([]);
   const [productores, setProductores] = useState([]);
+  const [videos, setVideos] = useState([]);
+
 
   const [vistaInfo, setVistaInfo] = useState(true);
   const [vistaReparto, setVistaReparto] = useState(false);
@@ -68,14 +74,6 @@ const VistaDetalleSeries = () => {
         setRedes(data);
       });
 
-    // fetch(
-    //   `https://api.themoviedb.org/3/tv/${params.id}/season/1?api_key=8cd74c1ce651a04254aaab08ea9e9585&&language=en-US`
-    // )
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     setEpisodios(data.results);
-    //   });
-
     fetch(
       `https://api.themoviedb.org/3/tv/${params.id}/credits?api_key=8cd74c1ce651a04254aaab08ea9e9585&&language=en-US`
     )
@@ -101,91 +99,123 @@ const VistaDetalleSeries = () => {
       });
   }, []);
 
-  return (
-    <>
-      <section>
-        <p>Hola soy el detalle de la Pelicula o Serie</p>
-        <div>PORTADA DE LA PELICULA O SERIE</div>
 
-        <div>
+  return (
+    <> 
+      <section>
+        <ImagenDetalle>
+          <img
+            src={`https://image.tmdb.org/t/p/original${detalle.backdrop_path}`}
+          ></img>
+        </ImagenDetalle>
+
+        <InformacionDetalle>
+        <div className="variables-detalle-secciones">
           <button onClick={verVistaInfo}>INFO</button>
           <button onClick={verVistaReparto}>REPARTO</button>
-          <button onClick={verVistaEpisodios}>EPISODIOS</button>
           <button onClick={verVistaSimilares}>SIMILARES</button>
         </div>
 
-        <div>
+        <div className="variables-detalle-vistas">
           {vistaInfo && (
+            
             <div>
+               <div className="variables-detalle-info">
+              <div className="variables-detalle-info-img">
               <Link to={`/series/detalle/${detalle.id}`}>
                 <img
-                  src={`https://image.tmdb.org/t/p/original${detalle.backdrop_path}`}
+                  src={`https://image.tmdb.org/t/p/w200${detalle.poster_path}`}
                 ></img>
               </Link>
-              <p>{detalle.name}</p>
+              </div>
+              <div className="variables-detalle-info-txt">
+              <h4>{detalle.name}</h4>
               <p>{detalle.vote_average}</p>
               <p>{detalle.overview}</p>
-
-              <p>Temporadas {detalle.number_of_seasons}</p>
-              <p>Episodios {detalle.number_of_episodes}</p>
-              {/* <p>duracion {detalle.episode_run_time[0]}</p> */}
-
-              <p>Generos:</p>
-              {generos.map((generos) => (<><div><p>{generos.name}</p></div></>))}
-
-              <p>Produccion:</p>
-              {productores.map((productores) => (<><div><p>{productores.name}</p></div></>))}
+              <p>Duración: {detalle.runtime} min.</p>
+              <p>
+                Géneros:{" "}
+                {generos.map((generos) => (
+                  <>
+                 <span>{generos.name}</span>
+                  </>
+                ))}
+              </p>
+              <p>
+                Producción:{" "}
+                {productores.map((productores) => (
+                  <>
+                 <span>{productores.name}</span>
+                  </>
+                ))}
+              </p>
+              </div>
+              </div>
 
               <div>
-                {detalle.homepage && (<a href={`${detalle.homepage}`} target="_blank"><p>WEB</p></a>)}
-                {redes.imdb_id && <a href={`https://www.imdb.com/title/${redes.imdb_id}`} target="_blank"><p>IMDB</p></a>}
-                {redes.twitter_id && <a href={`https://twitter.com/${redes.twitter_id}`} target="_blank"><p>TW</p></a>}
-                {redes.facebook_id && <a href={`https://www.facebook.com/${redes.facebook_id}`} target="_blank"><p>FB</p></a>}
-                {redes.instagram_id && <a href={`https://www.instagram.com/${redes.instagram_id}`} target="_blank"><p>IG</p></a>}
+                {detalle.homepage && (
+                  <a href={`${detalle.homepage}`} target="_blank">
+                    <p>WEB</p>
+                  </a> 
+                )}
+                {/* {detalle.homepage && (<a href={`${detalle.homepage}`} target="_blank"><FontAwesomeIcon icon={faLink} className="icono" /></a>)}
+                {redes.imdb_id && <a href={`https://www.imdb.com/title/${redes.imdb_id}`} target="_blank"> <FontAwesomeIcon icon={ fabImdb } className="icono" /> </a>}
+                {redes.twitter_id && <a href={`https://twitter.com/${redes.twitter_id}`} target="_blank"> <FontAwesomeIcon icon={ fabTwitter } className="icono" /></a>}
+                {redes.facebook_id && <a href={`https://www.facebook.com/${redes.facebook_id}`} target="_blank"> <FontAwesomeIcon icon={ fabFacebook } className="icono" /></a>}
+                {redes.instagram_id && <a href={`https://www.instagram.com/${redes.instagram_id}`} target="_blank"> <FontAwesomeIcon icon={ fabInstagram } className="icono" /></a>} */}
               </div>
-           
             </div>
           )}
+
           {vistaReparto && (
             <div>
+               <VistaActores>
               {reparto.map((actores) => (
                 <>
+                  <Tarjeta>
                   <Link>
-                    <img
-                      src={`https://image.tmdb.org/t/p/w200${actores.profile_path}`}
-                    ></img>
+                    <img src={`https://image.tmdb.org/t/p/w200${actores.profile_path}`}></img>
                   </Link>
-                  <p>{actores.name}</p>
+                  <h4>{actores.name}</h4>
+                  </Tarjeta>
                 </>
               ))}
+               </VistaActores>
             </div>
+            
           )}
-          {/* {vistaEpisodios && (
-            <div>
-              {episodios.map((episodios) => (
-                <p>{episodios.name}</p>
-              ))}
-            </div>
-          )} */}
+        
+
           {vistaSimilares && (
             <div>
+               <VistaActores>
               {similares.map((similar) => (
                 <>
-                  <Link to={`/series/detalle/${similar.id}`}>
+                  <Tarjeta>
+                  <Link to={`/peliculas/detalle/${similar.id}`}>
                     <img
                       src={`https://image.tmdb.org/t/p/w200${similar.poster_path}`}
                     ></img>
                   </Link>
-
-                  <p>{similar.name}</p>
+                  <h4>{similar.name}</h4>
+                  </Tarjeta>
                 </>
               ))}
+                 </VistaActores>
             </div>
           )}
         </div>
+        </InformacionDetalle>
+    
       </section>
-    </>
+        </>
   );
 };
 
+
 export default VistaDetalleSeries;
+
+
+
+
+

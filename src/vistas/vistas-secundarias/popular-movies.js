@@ -34,15 +34,11 @@ const PopularMovies = () => {
 
 
 
-
-
   return (
     <>
 
       <SeccionGeneral>
-     
       <h3>PELICULAS POPULARES</h3>
-
        
         <div className="vista-tarjetas">
           {detallePopulares.map((tarjeta) => (
@@ -56,7 +52,7 @@ const PopularMovies = () => {
               </Link>
               </div>
               <div>
-              <p>{tarjeta.title}</p>
+              <h4>{tarjeta.title}</h4>
               </div>
               </Tarjeta >
             </>

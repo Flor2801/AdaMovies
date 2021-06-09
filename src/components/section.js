@@ -4,19 +4,20 @@ import { Container } from "../components/commons.js";
 import { Seccion } from "../components/commons.js";
 import { Tarjeta } from "../components/commons.js";
 
+
 const Section = ({ item, title, url, tipo }) => {
   const array = item.slice(0, 5);
   const peliculaOserie = tipo;
 
   return (
     <>
+
    <Seccion >
         <Link to={url}>
           <h3>{title}</h3>
         </Link>
 
-        <Container >
-       
+        <Container >       
           {array.map((tarjeta) => (
             <>
             <Tarjeta>
@@ -24,13 +25,13 @@ const Section = ({ item, title, url, tipo }) => {
           {peliculaOserie == "Peliculas" ? <Link to={`/peliculas/detalle/${tarjeta.id}`}><img src={`https://image.tmdb.org/t/p/w200${tarjeta.poster_path}`}></img></Link>
          : <Link to={`/series/detalle/${tarjeta.id}`}><img src={`https://image.tmdb.org/t/p/w200${tarjeta.poster_path}`}></img></Link>}
           </div >
-          <div className="titulo">{peliculaOserie == "Peliculas" ? (<p>{tarjeta.title}</p>) : (<p>{tarjeta.name}</p>)} </div>
+          <div className="titulo">{peliculaOserie == "Peliculas" ? (<h4>{tarjeta.title}</h4>) : (<h4>{tarjeta.name}</h4>)} </div>
           </Tarjeta>
             </>
           ))}
-     
         </Container>
-        </Seccion>
+    </Seccion>
+   
 
     </>
   );

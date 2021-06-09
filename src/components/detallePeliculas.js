@@ -1,5 +1,15 @@
 import { React, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { ImagenDetalle } from "../components/commons.js";
+import { InformacionDetalle } from "../components/commons.js";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { VistaActores } from "../components/commons.js";
+import { Tarjeta } from "../components/commons.js";
+// import { fabImdb } from "@fortawesome/free-solid-svg-icons";
+// import { fabFacebook } from "@fortawesome/free-solid-svg-icons";
+// import { fabInstagram } from "@fortawesome/free-solid-svg-icons";
+// import { faLink } from "@fortawesome/free-solid-svg-icons";
+// import { fabTwitter } from "@fortawesome/free-solid-svg-icons";
 
 const VistaDetallePeliculas = () => {
   const [detalle, setDetalle] = useState([]);
@@ -14,8 +24,6 @@ const VistaDetallePeliculas = () => {
   const [vistaReparto, setVistaReparto] = useState(false);
   const [vistaVideos, setVistaVideos] = useState(false);
   const [vistaSimilares, setVistaSimilares] = useState(false);
-
-
 
   const verVistaInfo = () => {
     setVistaInfo(true);
@@ -46,7 +54,7 @@ const VistaDetallePeliculas = () => {
   };
 
   const params = useParams();
-  console.log(params)
+  console.log(params);
 
   useEffect(() => {
     fetch(
@@ -90,131 +98,144 @@ const VistaDetallePeliculas = () => {
       .then((data) => {
         setSimilares(data.results);
       });
-
   }, []);
 
   return (
     <>
       <section>
-        <div>
+        <ImagenDetalle>
           <img
             src={`https://image.tmdb.org/t/p/original${detalle.backdrop_path}`}
           ></img>
-        </div>
+        </ImagenDetalle>
 
-        <div>
-          <button onClick={verVistaInfo}>INFO</button>
-          <button onClick={verVistaReparto}>REPARTO</button>
-          <button onClick={verVistaVideos}>VIDEOS</button>
-          <button onClick={verVistaSimilares}>SIMILARES</button>
-        </div>
+        <InformacionDetalle>
+          <div className="variables-detalle-secciones">
+            <button onClick={verVistaInfo}>INFO</button>
+            <button onClick={verVistaReparto}>REPARTO</button>
+            <button onClick={verVistaVideos}>VIDEOS</button>
+            <button onClick={verVistaSimilares}>SIMILARES</button>
+          </div>
 
-        <div>
-          {vistaInfo && (
-            <div>
-              <Link to={`/peliculas/detalle/${detalle.id}`}>
-                <img
-                  src={`https://image.tmdb.org/t/p/w200${detalle.poster_path}`}
-                ></img>
-              </Link>
-              <p>{detalle.title}</p>
-              <p>{detalle.vote_average}</p>
-              <p>{detalle.overview}</p>
-              <p>Duración: {detalle.runtime} min.</p>
-              <p>
-                Géneros:{" "}
-                {generos.map((generos) => (
-                  <>
-                    <p>{generos.name}</p>
-                  </>
-                ))}
-              </p>
-              <p>Presupuesto: ${detalle.budget}</p>
-              <p>Recaudación: ${detalle.revenue}</p>
-              <p>
-                Producción:{" "}
-                {produccion.map((productores) => (
-                  <>
-                    <p>{productores.name}</p>
-                  </>
-                ))}
-              </p>
-
+          <div className="variables-detalle-vistas">
+            {vistaInfo && (
               <div>
+                <div className="variables-detalle-info">
+                  <div className="variables-detalle-info-img">
+                    <Link to={`/peliculas/detalle/${detalle.id}`}>
+                      <img
+                        src={`https://image.tmdb.org/t/p/w200${detalle.poster_path}`}
+                      ></img>
+                    </Link>
+                  </div>
+                  <div className="variables-detalle-info-txt">
+                    <h4>{detalle.title}</h4>
+                    <p>{detalle.vote_average}</p>
+                    <p>{detalle.overview}</p>
+                    <p>Duración: {detalle.runtime} min.</p>
+                    <p>
+                      Géneros:{" "}
+                      {generos.map((generos) => (
+                        <>
+                      <span>{generos.name}</span>
+                        </>
+                      ))}
+                    </p>
+                    <p>Presupuesto: ${detalle.budget}</p>
+                    <p>Recaudación: ${detalle.revenue}</p>
+                    <p>
+                      Producción:{" "}
+                      {produccion.map((productores) => (
+                        <>
+                       <span>{productores.name}</span>
+                        </>
+                      ))}
+                    </p>
+                    <div>
                 {detalle.homepage && (
                   <a href={`${detalle.homepage}`} target="_blank">
                     <p>WEB</p>
-                  </a>
+                  </a> 
                 )}
-                {detalle.homepage && (<a href={`${detalle.homepage}`} target="_blank"><p>WEB</p></a>)}
-                {redes.imdb_id && <a href={`https://www.imdb.com/title/${redes.imdb_id}`} target="_blank"><p>IMDB</p></a>}
-                {redes.twitter_id && <a href={`https://twitter.com/${redes.twitter_id}`} target="_blank"><p>TW</p></a>}
-                {redes.facebook_id && <a href={`https://www.facebook.com/${redes.facebook_id}`} target="_blank"><p>FB</p></a>}
-                {redes.instagram_id && <a href={`https://www.instagram.com/${redes.instagram_id}`} target="_blank"><p>IG</p></a>}
+                {/* {detalle.homepage && (<a href={`${detalle.homepage}`} target="_blank"><FontAwesomeIcon icon={faLink} className="icono" /></a>)}
+                {redes.imdb_id && <a href={`https://www.imdb.com/title/${redes.imdb_id}`} target="_blank"> <FontAwesomeIcon icon={ fabImdb } className="icono" /> </a>}
+                {redes.twitter_id && <a href={`https://twitter.com/${redes.twitter_id}`} target="_blank"> <FontAwesomeIcon icon={ fabTwitter } className="icono" /></a>}
+                {redes.facebook_id && <a href={`https://www.facebook.com/${redes.facebook_id}`} target="_blank"> <FontAwesomeIcon icon={ fabFacebook } className="icono" /></a>}
+                {redes.instagram_id && <a href={`https://www.instagram.com/${redes.instagram_id}`} target="_blank"> <FontAwesomeIcon icon={ fabInstagram } className="icono" /></a>} */}
               </div>
-            </div>
-          )}
+                  </div>
+                </div>
+              </div>
+            )}
 
-          {vistaReparto && (
-            <div>
-              {reparto.map((actores) => (
-                <>
-                  <Link>
-                    <img
-                      src={`https://image.tmdb.org/t/p/w200${actores.profile_path}`}
-                    ></img>
-                  </Link>
-                  <p>{actores.name}</p>
-                </>
-              ))}
-            </div>
-          )}
-          {vistaVideos && (
-            <div>
-                 <a
-                    href={`https://www.youtube.com/watch?v=jBa_aHwCbC4`}
-                    target="_blank"
-                  >
-                    <iframe
-                      width="300"
-                      height="200"
-                      src={`https://www.youtube.com/watch?v=jBa_aHwCbC4`}
-                    ></iframe>
-                  </a>
+            {vistaReparto && (
+              <div>
+                <VistaActores>
+                  {reparto.map((actores) => (
+                    <>
+                      <Tarjeta>
+                        <Link>
+                          <img
+                            src={`https://image.tmdb.org/t/p/w200${actores.profile_path}`}
+                          ></img>
+                        </Link>
+                        <h4>{actores.name}</h4>
+                      </Tarjeta>
+                    </>
+                  ))}
+                </VistaActores>
+              </div>
+            )}
+            {vistaVideos && (
+              <div>
+                <a
+                  href={`https://www.youtube.com/watch?v=jBa_aHwCbC4`}
+                  target="_blank"
+                >
+                  <iframe
+                    width="300"
+                    height="200"
+                    src={`https://www.youtube.com/watch?v=jBa_aHwCbC4`}
+                  ></iframe>
+                </a>
 
-
-              {videos.map((videos) => (
-                <>
-                  <a
-                    href={`https://www.youtube.com/watch?v=${videos.key}`}
-                    target="_blank"
-                  >
-                    <iframe
-                      width="300"
-                      height="200"
-                      src={`https://www.youtube.com/watch?v=${videos.key}`}
-                    ></iframe>
-                  </a>
-                  <p>{videos.name}</p>
-                </>
-              ))}
-            </div>
-          )}
-          {vistaSimilares && (
-            <div>
-              {similares.map((similar) => (
-                <>
-                  <Link to={`/peliculas/detalle/${similar.id}`}>
-                    <img
-                      src={`https://image.tmdb.org/t/p/w200${similar.poster_path}`}
-                    ></img>
-                  </Link>
-                  <p>{similar.title}</p>
-                </>
-              ))}
-            </div>
-          )}
-        </div>
+                {videos.map((videos) => (
+                  <>
+                    <a
+                      href={`https://www.youtube.com/watch?v=${videos.key}`}
+                      target="_blank"
+                    >
+                      <iframe
+                        width="300"
+                        height="200"
+                        src={`https://www.youtube.com/watch?v=${videos.key}`}
+                      ></iframe>
+                    </a>
+                    <p>{videos.name}</p>
+                  </>
+                ))}
+              </div>
+            )}
+            {vistaSimilares && (
+              <div>
+                <VistaActores>
+                  {similares.map((similar) => (
+                    <>
+                      <Tarjeta>
+                        <Link to={`/peliculas/detalle/${similar.id}`}>
+                          <img
+                            src={`https://image.tmdb.org/t/p/w200${similar.poster_path}`}
+                          ></img>
+                        </Link>
+                        <h4>{similar.title}</h4>
+                      </Tarjeta>
+                    </>
+                  ))}
+                </VistaActores>
+              </div>
+            )}
+          </div>
+        </InformacionDetalle>
       </section>
     </>
   );

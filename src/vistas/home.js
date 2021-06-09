@@ -4,6 +4,7 @@ import Section from "../components/section";
 import useFetch from "../hooks.js/useFetch";
 import Slider from "../components/carrousel";
 import styled from "styled-components";
+import GlobalStyle from "../components/globalStyles.js";
 
 
 
@@ -16,14 +17,11 @@ const Home = () => {
   height: 100px;
   `
 
-
   return (
     <>
 
- 
-
       <Slider />
-     <Espacio></Espacio>
+      <Espacio></Espacio>
       <Section item={peliculas} title="PELICULAS QUE SON TENDENCIA" url="/peliculas/tendencias" tipo="Peliculas" />
       <Section item={series} title="SERIES QUE SON TENDENCIA" url="/series/tendencias" tipo="Series"/>
 

@@ -21,7 +21,9 @@ import TopRatedSeries from './vistas/vistas-secundarias/top-rated-series'
 import OnAirSeries from './vistas/vistas-secundarias/on-the-air-series'
 import VistaDetallePeliculas from "./components/detallePeliculas";
 import VistaDetalleSeries from "./components/detalleSeries";
-import VistaResultadosBusqueda from "./vistas/vistaResultadoBusqueda";
+import VistaResultadosBusqueda from "./vistas/vistas-secundarias/vistaResultadoBusqueda";
+
+
 
 
 function App() {
@@ -55,7 +57,7 @@ function App() {
         <Route  exact path={`/busqueda/:query`} component={VistaResultadosBusqueda}/>
 
         <Footer></Footer>
-   
+       
       </BrowserRouter>
     
     </>

@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faVideo } from "@fortawesome/free-solid-svg-icons";
 import { faTv } from "@fortawesome/free-solid-svg-icons";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const Navegacion = () => {
   const [valorDelInput, setValorDelInput] = useState("");
@@ -12,20 +13,38 @@ const Navegacion = () => {
 
   const BarraNavegacion = styled.div`
     height: 80px;
+    width: 100%;
     background-color: #23272a;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
+    font-family: 'Montserrat', sans-serif;
 
+.logo {
+
+
+
+
+  p {
+    font-size: 30px;
+    color: white;
+    margin-right: 40px;
+    font-weight: 600;
+    font-family: 'Righteous', cursive;
+  }
+ 
+}    
     .iconos {
       display: flex;
-      margin-left: 30px;
-      margin-right: 70px;
+      margin-left: 15px;
 
       .icono {
         color: #fafafa;
-        font-size: 50x;
-        margin: 12px;
+        font-size: 70x;
+        margin-left: 35px;
+        padding: 0px;
+        font-size: 20px;
+      
       }
     }
 
@@ -38,21 +57,22 @@ const Navegacion = () => {
     form {
       color: white;
       font-size: 12px;
-
+      margin-left: -450px;
+  
       input {
-        border-radius: 3px;
-
-        &:focus {
-          border: none;
-        }
-
-        &:active {
-          border: none;
-        }
-        border: none;
-        width: 200px;
+        background-color: #E9E9E9;
+        border-radius: 2px;
+        width: 250px;
         height: 30px;
         display: inline;
+        padding-left: 30px;
+      }
+
+      .icono {
+        position: relative;
+        left: 25px;
+        color: grey;
+        font-size: 15px;
       }
     }
   `;
@@ -91,12 +111,16 @@ const Navegacion = () => {
         <div>
           <form onSubmit={mostrarResultados}>
             <p>BÚSQUEDA</p>
+            <FontAwesomeIcon icon={faSearch} className="icono" />
             <input
               type="text"
               value={valorDelInput}
               onChange={busquedaTexto}
             ></input>
           </form>
+        </div>
+        <div className="logo">
+          <p>ADAMOVIES</p>
         </div>
       </BarraNavegacion>
     </>

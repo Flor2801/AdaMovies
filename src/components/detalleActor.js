@@ -2,6 +2,7 @@ import { React, useEffect, useState } from "react";
 import useFetch from "../hooks.js/useFetch";
 import { Link, useParams } from "react-router-dom";
 
+
 const VistaDetallePeliculas = () => {
   const [detalle, setDetalle] = useState([]);
   const [redes, setRedes] = useState([]);
@@ -48,7 +49,7 @@ const VistaDetallePeliculas = () => {
 
   return (
     <>
-      <section>
+      <SeccionActores>
         <div>
           <img
             src={`https://image.tmdb.org/t/p/original${detalle.backdrop_path}`}
@@ -110,7 +111,7 @@ const VistaDetallePeliculas = () => {
          
 
         </div>
-      </section>
+        </SeccionActores>
     </>
   );
 };
