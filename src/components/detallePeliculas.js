@@ -5,11 +5,13 @@ import { InformacionDetalle } from "../components/commons.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { VistaActores } from "../components/commons.js";
 import { Tarjeta } from "../components/commons.js";
-// import { fabImdb } from "@fortawesome/free-solid-svg-icons";
-// import { fabFacebook } from "@fortawesome/free-solid-svg-icons";
-// import { fabInstagram } from "@fortawesome/free-solid-svg-icons";
-// import { faLink } from "@fortawesome/free-solid-svg-icons";
-// import { fabTwitter } from "@fortawesome/free-solid-svg-icons";
+import { fabImdb } from "@fortawesome/free-solid-svg-icons";
+import { fabFacebook } from "@fortawesome/free-solid-svg-icons";
+import { fabInstagram } from "@fortawesome/free-solid-svg-icons";
+import { faLink } from "@fortawesome/free-solid-svg-icons";
+import { fabTwitter } from "@fortawesome/free-solid-svg-icons";
+
+
 
 const VistaDetallePeliculas = () => {
   const [detalle, setDetalle] = useState([]);
@@ -157,11 +159,11 @@ const VistaDetallePeliculas = () => {
                     <p>WEB</p>
                   </a> 
                 )}
-                {/* {detalle.homepage && (<a href={`${detalle.homepage}`} target="_blank"><FontAwesomeIcon icon={faLink} className="icono" /></a>)}
+                {detalle.homepage && (<a href={`${detalle.homepage}`} target="_blank"><FontAwesomeIcon icon={faLink} className="icono" /></a>)}
                 {redes.imdb_id && <a href={`https://www.imdb.com/title/${redes.imdb_id}`} target="_blank"> <FontAwesomeIcon icon={ fabImdb } className="icono" /> </a>}
                 {redes.twitter_id && <a href={`https://twitter.com/${redes.twitter_id}`} target="_blank"> <FontAwesomeIcon icon={ fabTwitter } className="icono" /></a>}
                 {redes.facebook_id && <a href={`https://www.facebook.com/${redes.facebook_id}`} target="_blank"> <FontAwesomeIcon icon={ fabFacebook } className="icono" /></a>}
-                {redes.instagram_id && <a href={`https://www.instagram.com/${redes.instagram_id}`} target="_blank"> <FontAwesomeIcon icon={ fabInstagram } className="icono" /></a>} */}
+                {redes.instagram_id && <a href={`https://www.instagram.com/${redes.instagram_id}`} target="_blank"> <FontAwesomeIcon icon={ fabInstagram } className="icono" /></a>}
               </div>
                   </div>
                 </div>
