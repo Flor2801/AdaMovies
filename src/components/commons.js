@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 
+
+
 export const Seccion = styled.section`
   width: 90%;
   margin: 60px 0px 0px 50px;
@@ -19,6 +21,7 @@ export const Seccion = styled.section`
     text-decoration: none;
   }
 `;
+
 
 export const Container = styled.div`
   height: 400px;
@@ -76,6 +79,7 @@ export const SeccionGeneral = styled.section`
   }
 
   .Paginado {
+
     div {
       padding: 100px 0 0 0;
       display: flex;
@@ -97,6 +101,7 @@ export const SeccionGeneral = styled.section`
     }
   }
 `;
+
 
 export const ImagenDetalle = styled.div`
   height: 400px;
