@@ -1,12 +1,14 @@
 import { React } from "react";
-
+import { PieDePagina } from "../components/commons.js";
 
 
 
 const Footer = () => {
+
  return (
     <>
-    <p>FOOTER</p>
+    <PieDePagina> Hecho con amor por Florencia Sarria gracias a ADAItw - Junio 2021 </ PieDePagina>
+
     </>
 
   );

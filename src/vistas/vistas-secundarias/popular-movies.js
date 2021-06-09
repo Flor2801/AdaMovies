@@ -1,6 +1,13 @@
 import { React, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Paginado from "../../components/paginado";
+import { SeccionGeneral } from "../../components/commons.js";
+import { Tarjeta } from "../../components/commons.js";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleDoubleRight, faAngleDoubleLeft } from "@fortawesome/free-solid-svg-icons";
+import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
+
+
 
 
 
@@ -13,9 +20,6 @@ const PopularMovies = () => {
   const cantidadPaginasPopulares = Number(paginasPopulares);
 
 
-  const cambiarPaginaLocal = (paginaComponente) => {
-   setPaginaActual(paginaComponente)
-  }
   
   useEffect(() => {
     fetch(
@@ -29,45 +33,59 @@ const PopularMovies = () => {
   }, [paginaActual]);
 
 
+
+
+
   return (
     <>
-      <section>
-        <Paginado pagina={paginaActual} total={cantidadPaginasPopulares} funcion={cambiarPaginaLocal}></Paginado>
-        <p>PELICULAS POPULARES</p>
-        <div>
+
+      <SeccionGeneral>
+     
+      <h3>PELICULAS POPULARES</h3>
+
+       
+        <div className="vista-tarjetas">
           {detallePopulares.map((tarjeta) => (
             <>
+            <Tarjeta >
+            <div>
               <Link to={`/peliculas/detalle/${tarjeta.id}`}>
                 <img
                   src={`https://image.tmdb.org/t/p/w200${tarjeta.poster_path}`}
                 ></img>
               </Link>
+              </div>
+              <div>
               <p>{tarjeta.title}</p>
+              </div>
+              </Tarjeta >
             </>
           ))}
         </div>
-      </section>
 
-
-
-    {/* <div>
+        <div className="Paginado">
    
-        <button onClick={() => setPaginaActual(1)}>PRIMERA</button>
-        <button onClick={() => paginaActual==1 ? setPaginaActual(1) : setPaginaActual(paginaActual-1)}>ANTERIOR</button>
+      <div className="Paginado-botones">
+        <button onClick={() => setPaginaActual(1)}><FontAwesomeIcon icon={faAngleDoubleLeft} className="icono" /></button>
+        <button onClick={() => paginaActual===1 ? setPaginaActual(1) : setPaginaActual(paginaActual-1)}><FontAwesomeIcon icon={faAngleLeft} className="icono" /></button>
+        <button className="pagina-actual">{paginaActual}</button> 
 
-        <button>{paginaActual}</button> 
-
-        <button onClick={() => setPaginaActual(paginaActual+1)}> {paginaActual+1} </button>
+       { paginaActual !== cantidadPaginasPopulares ?
+         <>
+        <button onClick={() => setPaginaActual(paginaActual+1)}>{paginaActual+1}</button>
         <button onClick={() => setPaginaActual(paginaActual+2)}>{paginaActual+2}</button>
         <button onClick={() => setPaginaActual(paginaActual+3)}>{paginaActual+3}</button>
+         </>
+         : <div></div>
+       }
 
         <button>...</button>
+        <button onClick={() => paginaActual === cantidadPaginasPopulares ? setPaginaActual(cantidadPaginasPopulares) : setPaginaActual(paginaActual+1)}> <FontAwesomeIcon icon={faAngleRight} className="icono" /></button>
+        <button onClick={() => setPaginaActual(cantidadPaginasPopulares)}><FontAwesomeIcon icon={faAngleDoubleRight} className="icono" /></button>
+        </div>
+      </div>
+        </SeccionGeneral>
 
-        <button onClick={() => paginaActual == cantidadPaginasPopulares ? setPaginaActual(cantidadPaginasPopulares)
-         : setPaginaActual(paginaActual-1)}>PROXIMA</button>
-        <button onClick={() => setPaginaActual(cantidadPaginasPopulares)}>ULTIMA</button>
-
-      </div>  */}
     </>
   );
 };

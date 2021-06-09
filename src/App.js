@@ -1,6 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Route } from "react-router-dom";
 import { React } from "react";
+import GlobalStyle from './components/globalStyles';
 // Vistas Principales
 import Movies from "./vistas/movies";
 import Series from "./vistas/series";
@@ -18,21 +19,20 @@ import NowPlayingMovies from './vistas/vistas-secundarias/now-playing-movies'
 import PopularSeries from './vistas/vistas-secundarias/popular-series'
 import TopRatedSeries from './vistas/vistas-secundarias/top-rated-series'
 import OnAirSeries from './vistas/vistas-secundarias/on-the-air-series'
-
 import VistaDetallePeliculas from "./components/detallePeliculas";
 import VistaDetalleSeries from "./components/detalleSeries";
-
 import VistaResultadosBusqueda from "./vistas/vistaResultadoBusqueda";
 
 
 function App() {
 
-
   return (
     <>
+  
       <BrowserRouter>
+   
         <Navegacion ></Navegacion>
-
+        <GlobalStyle />
         <Route exact path="/" component={Home} />
         <Route exact path="/peliculas" component={Movies}  />
         <Route exact path="/series" component={Series}  />
@@ -55,7 +55,9 @@ function App() {
         <Route  exact path={`/busqueda/:query`} component={VistaResultadosBusqueda}/>
 
         <Footer></Footer>
+   
       </BrowserRouter>
+    
     </>
   );
 }
