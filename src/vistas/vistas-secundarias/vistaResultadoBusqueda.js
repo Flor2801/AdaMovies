@@ -1,14 +1,9 @@
 import { React, useState, useEffect } from "react";
-import useFetch from "../../hooks.js/useFetch";
-import Section from "../../components/section";
-import { Link, useParams, useLocation } from "react-router-dom";
+import { Link, useParams} from "react-router-dom";
 import { SeccionGeneral } from "../../components/commons.js";
 import { Tarjeta } from "../../components/commons.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faAngleDoubleRight,
-  faAngleDoubleLeft,
-} from "@fortawesome/free-solid-svg-icons";
+import { faAngleDoubleRight, faAngleDoubleLeft} from "@fortawesome/free-solid-svg-icons";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 
@@ -21,6 +16,7 @@ const VistaResultadoBusqueda = () => {
   const [paginasBusqueda, setPaginasBusqueda] = useState([]);
   const cantidadPaginasBusqueda = Number(paginasBusqueda);
 
+
   useEffect(() => {
     fetch(
       `https://api.themoviedb.org/3/search/multi?api_key=6a93319b2d78795675b8bd9aa0965a95&
@@ -31,7 +27,7 @@ const VistaResultadoBusqueda = () => {
         setResultado(data.results);
         setPaginasBusqueda(data.total_pages);
       });
-  }, [paginaActual]);
+  }, [paginaActual, params]);
 
 
   return (

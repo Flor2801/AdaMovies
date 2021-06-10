@@ -55,6 +55,7 @@ function App() {
         <Route  exact path={`/series/detalle/:id`} component={VistaDetalleSeries}/>
 
         <Route  exact path={`/busqueda/:query`} component={VistaResultadosBusqueda}/>
+        <Route  exact path={`/busqueda/detalle/:query`} component={VistaResultadosBusqueda}/>
 
         <Footer></Footer>
        

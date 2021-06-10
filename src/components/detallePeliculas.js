@@ -4,13 +4,12 @@ import { ImagenDetalle } from "../components/commons.js";
 import { InformacionDetalle } from "../components/commons.js";
 import { VistaActores } from "../components/commons.js";
 import { Tarjeta } from "../components/commons.js";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { Tarjeta } from "../components/commons.js";
-// import { fasImdb } from "@fortawesome/free-solid-svg-icons";
-// import { fasFacebook } from "@fortawesome/free-solid-svg-icons";
-// import { fasInstagram } from "@fortawesome/free-solid-svg-icons";
-// import { fasLink } from "@fortawesome/free-solid-svg-icons";
-// import { fasTwitter } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLink } from "@fortawesome/free-solid-svg-icons";
+import { faImdb } from "@fortawesome/free-brands-svg-icons";
+import { faFacebook } from "@fortawesome/free-brands-svg-icons";
+import { faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 
 
@@ -27,6 +26,8 @@ const VistaDetallePeliculas = () => {
   const [vistaReparto, setVistaReparto] = useState(false);
   const [vistaVideos, setVistaVideos] = useState(false);
   const [vistaSimilares, setVistaSimilares] = useState(false);
+
+
 
   const verVistaInfo = () => {
     setVistaInfo(true);
@@ -57,11 +58,10 @@ const VistaDetallePeliculas = () => {
   };
 
   const params = useParams();
-  console.log(params);
 
   useEffect(() => {
     fetch(
-      `https://api.themoviedb.org/3/movie/${params.id}?api_key=8cd74c1ce651a04254aaab08ea9e9585&&language=en-US`
+      `https://api.themoviedb.org/3/movie/${params.id}?api_key=8cd74c1ce651a04254aaab08ea9e9585&&language=es-ES`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -71,7 +71,7 @@ const VistaDetallePeliculas = () => {
       });
 
     fetch(
-      `https://api.themoviedb.org/3/movie/${params.id}/external_ids?api_key=8cd74c1ce651a04254aaab08ea9e9585&&language=en-US`
+      `https://api.themoviedb.org/3/movie/${params.id}/external_ids?api_key=8cd74c1ce651a04254aaab08ea9e9585&&language=es-ES`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -79,7 +79,7 @@ const VistaDetallePeliculas = () => {
       });
 
     fetch(
-      `https://api.themoviedb.org/3/movie/${params.id}/credits?api_key=8cd74c1ce651a04254aaab08ea9e9585&&language=en-US`
+      `https://api.themoviedb.org/3/movie/${params.id}/credits?api_key=8cd74c1ce651a04254aaab08ea9e9585&&language=es-ES`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -87,7 +87,7 @@ const VistaDetallePeliculas = () => {
       });
 
     fetch(
-      `https://api.themoviedb.org/3/movie/${params.id}/videos?api_key=8cd74c1ce651a04254aaab08ea9e9585&&language=en-US`
+      `https://api.themoviedb.org/3/movie/${params.id}/videos?api_key=8cd74c1ce651a04254aaab08ea9e9585&&language=es-ES`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -95,13 +95,13 @@ const VistaDetallePeliculas = () => {
       });
 
     fetch(
-      `https://api.themoviedb.org/3/movie/${params.id}/similar?api_key=8cd74c1ce651a04254aaab08ea9e9585&&language=en-US`
+      `https://api.themoviedb.org/3/movie/${params.id}/similar?api_key=8cd74c1ce651a04254aaab08ea9e9585&&language=es-ES`
     )
       .then((res) => res.json())
       .then((data) => {
         setSimilares(data.results);
       });
-  }, []);
+  }, [params]);
 
   return (
     <>
@@ -154,12 +154,12 @@ const VistaDetallePeliculas = () => {
                         </>
                       ))}
                     </p>
-                    <div>
-                     {detalle.homepage && (<a href={`${detalle.homepage}`} target="_blank"> WEBSITE</a>)}
-                     {redes.imdb_id && <a href={`https://www.imdb.com/title/${redes.imdb_id}`} target="_blank"> IMDB </a>}
-                     {redes.twitter_id && <a href={`https://twitter.com/${redes.twitter_id}`} target="_blank"> TWITTER</a>}
-                     {redes.facebook_id && <a href={`https://www.facebook.com/${redes.facebook_id}`} target="_blank"> FACEBOOK</a>}
-                     {redes.instagram_id && <a href={`https://www.instagram.com/${redes.instagram_id}`} target="_blank"> INSTAGRAM</a>}
+                    <div className="variables-detalle-info-redes">
+                     {detalle.homepage && <a href={`${detalle.homepage}`} target="_blank"> <FontAwesomeIcon icon={faLink} className="icono" /></a>}
+                     {redes.imdb_id && <a href={`https://www.imdb.com/title/${redes.imdb_id}`} target="_blank"> <FontAwesomeIcon icon={faImdb} className="icono" /> </a>}
+                     {redes.twitter_id && <a href={`https://twitter.com/${redes.twitter_id}`} target="_blank"> <FontAwesomeIcon icon={faTwitter} className="icono" /></a>}
+                     {redes.facebook_id && <a href={`https://www.facebook.com/${redes.facebook_id}`} target="_blank"> <FontAwesomeIcon icon={faFacebook} className="icono" /></a>}
+                     {redes.instagram_id && <a href={`https://www.instagram.com/${redes.instagram_id}`} target="_blank"> <FontAwesomeIcon icon={faInstagram} className="icono" /></a>}
                     </div>
                   </div>
                 </div>

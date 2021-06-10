@@ -1,3 +1,4 @@
+
 import { createGlobalStyle } from 'styled-components'
 
 
@@ -15,7 +16,6 @@ const GlobalStyle = createGlobalStyle`
       text-decoration: none;
       font-family: 'Montserrat', sans-serif;
     }
-
 `;
 
 

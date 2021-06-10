@@ -5,21 +5,23 @@ import { InformacionDetalle } from "../components/commons.js";
 import { VistaActores } from "../components/commons.js";
 import { Tarjeta } from "../components/commons.js";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLink } from "@fortawesome/free-solid-svg-icons";
+import { faImdb } from "@fortawesome/free-brands-svg-icons";
+import { faFacebook } from "@fortawesome/free-brands-svg-icons";
+import { faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { faTwitter } from "@fortawesome/free-brands-svg-icons";
+
+
 const VistaDetalleSeries = () => {
   const [detalle, setDetalle] = useState([]);
   const [redes, setRedes] = useState([]);
   const [reparto, setReparto] = useState([]);
   const [similares, setSimilares] = useState([]);
-  const [imagenes, setImagenes] = useState([]);
-  const [cantidadTemporadas, setCantidadTemporadas] = useState([]);
   const [generos, setGeneros] = useState([]);
   const [productores, setProductores] = useState([]);
-  const [videos, setVideos] = useState([]);
-
-
   const [vistaInfo, setVistaInfo] = useState(true);
   const [vistaReparto, setVistaReparto] = useState(false);
-  const [vistaEpisodios, setVistaEpisodios] = useState(false);
   const [vistaSimilares, setVistaSimilares] = useState(false);
 
   console.log(detalle);
@@ -57,7 +59,7 @@ const VistaDetalleSeries = () => {
 
   useEffect(() => {
     fetch(
-      `https://api.themoviedb.org/3/tv/${params.id}?api_key=8cd74c1ce651a04254aaab08ea9e9585&&language=en-US`
+      `https://api.themoviedb.org/3/tv/${params.id}?api_key=8cd74c1ce651a04254aaab08ea9e9585&&language=es-ES`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -67,7 +69,7 @@ const VistaDetalleSeries = () => {
       });
 
     fetch(
-      `https://api.themoviedb.org/3/tv/${params.id}/external_ids?api_key=8cd74c1ce651a04254aaab08ea9e9585&&language=en-US`
+      `https://api.themoviedb.org/3/tv/${params.id}/external_ids?api_key=8cd74c1ce651a04254aaab08ea9e9585&&language=es-ES`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -75,7 +77,7 @@ const VistaDetalleSeries = () => {
       });
 
     fetch(
-      `https://api.themoviedb.org/3/tv/${params.id}/credits?api_key=8cd74c1ce651a04254aaab08ea9e9585&&language=en-US`
+      `https://api.themoviedb.org/3/tv/${params.id}/credits?api_key=8cd74c1ce651a04254aaab08ea9e9585&&language=es-ES`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -150,13 +152,13 @@ const VistaDetalleSeries = () => {
                   </>
                 ))}
               </p>
-              <div>
-                 {detalle.homepage && (<a href={`${detalle.homepage}`} target="_blank"> WEBSITE</a>)}
-                 {redes.imdb_id && <a href={`https://www.imdb.com/title/${redes.imdb_id}`} target="_blank"> IMDB </a>}
-                 {redes.twitter_id && <a href={`https://twitter.com/${redes.twitter_id}`} target="_blank"> TWITTER</a>}
-                 {redes.facebook_id && <a href={`https://www.facebook.com/${redes.facebook_id}`} target="_blank"> FACEBOOK</a>}
-                 {redes.instagram_id && <a href={`https://www.instagram.com/${redes.instagram_id}`} target="_blank"> INSTAGRAM</a>}
-               </div>
+              <div className="variables-detalle-info-redes">
+                     {detalle.homepage && <a href={`${detalle.homepage}`} target="_blank"> <FontAwesomeIcon icon={faLink} className="icono" /></a>}
+                     {redes.imdb_id && <a href={`https://www.imdb.com/title/${redes.imdb_id}`} target="_blank"> <FontAwesomeIcon icon={faImdb} className="icono" /> </a>}
+                     {redes.twitter_id && <a href={`https://twitter.com/${redes.twitter_id}`} target="_blank"> <FontAwesomeIcon icon={faTwitter} className="icono" /></a>}
+                     {redes.facebook_id && <a href={`https://www.facebook.com/${redes.facebook_id}`} target="_blank"> <FontAwesomeIcon icon={faFacebook} className="icono" /></a>}
+                     {redes.instagram_id && <a href={`https://www.instagram.com/${redes.instagram_id}`} target="_blank"> <FontAwesomeIcon icon={faInstagram} className="icono" /></a>}
+                    </div>
               </div>
               </div>
 

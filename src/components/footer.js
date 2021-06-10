@@ -7,7 +7,7 @@ const Footer = () => {
 
  return (
     <>
-    <PieDePagina> Hecho con ❤️ por FLORENCIA SARRIA - FrontEnd Developer - gracias a ADAItw 🥰 - Junio 2021 </ PieDePagina>
+    <PieDePagina> <p>HECHO CON ❤️ POR FLORENCIA SARRIA | FrontEnd Developer | GRACIAS A ADAItw 🥰 </p></ PieDePagina>
 
     </>
 

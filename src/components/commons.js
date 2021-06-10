@@ -2,10 +2,16 @@ import styled from "styled-components";
 
 export const Seccion = styled.div`
   width: 90%;
-  margin: 60px 0px 0px 50px;
+  margin: 30px 0px 0px 50px;
   font-family: "Montserrat", sans-serif;
   display: flex;
   flex-wrap: wrap;
+
+  
+  @media (max-width: 900px) {
+    justify-content: center;
+    align-items: center;
+   }
 
   h3 {
     font-size: 25px;
@@ -36,6 +42,7 @@ export const Tarjeta = styled.div`
   align-items: flex-start;
   margin: 40px 30px 10px 0px;
 
+
   .titulo {
     height: 40px;
   }
@@ -61,12 +68,21 @@ export const SeccionGeneral = styled.section`
   margin: 50px;
   font-family: "Montserrat", sans-serif;
 
+  @media (max-width: 900px) {
+   justify-content: center;
+   align-items: center;
+  }
+
   h3 {
     font-size: 25px;
     font-weight: 300;
     text-decoration: none;
     color: white;
     margin-bottom: 10px;
+
+  
+
+
   }
 
   .vista-tarjetas {
@@ -135,6 +151,8 @@ export const ImagenDetalle = styled.div`
 
   img {
     width: 100%;
+    position: relative;
+    top: 30px;
   }
 `;
 
@@ -211,6 +229,18 @@ export const InformacionDetalle = styled.div`
         max-width: 300px;
       }
     }
+
+   .variables-detalle-info-redes {
+     margin-top: 30px;
+    
+     .icono {
+      
+      font-size: 20px;
+      color: white;
+    
+     }
+   
+   }
   }
 `;
 
@@ -233,10 +263,35 @@ export const PieDePagina = styled.div`
   position: relative;
   bottom: 0px;
 
+
+
   p {
     color: white;
     font-size: 15px;
     font-weight: 300;
     font-family: "Montserrat", sans-serif;
+
+    @media (max-width: 900px) {
+     margin: 0px 20px;
+     max-width: 500px;
+     text-align: center;
+     }
+
+     @media (max-width: 600px) {
+      font-size: 13px;
+      margin: 0px 20px;
+      max-width: 300px;
+      text-align: center;
+      }
+
+      @media (max-width: 300px) {
+        font-size: 13px;
+        margin: 0px 20px;
+        max-width: 200px;
+        text-align: center;
+        }
   }
+
+   
+  
 `;
