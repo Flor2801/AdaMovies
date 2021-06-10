@@ -10,15 +10,12 @@ import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 
 
 
-
-
 const PopularMovies = () => {
 
   const [paginaActual, setPaginaActual] = useState(1);
-  const [detallePopulares, setDetallePopulares] = useState([]);
-  const [paginasPopulares, setPaginasPopulares] = useState([]);
-  const cantidadPaginasPopulares = Number(paginasPopulares);
-
+  const [detalle, setDetalle] = useState([]);
+  const [paginas, setPaginas] = useState([]);
+  const paginasTotales = Number(paginas);
 
   
   useEffect(() => {
@@ -27,8 +24,8 @@ const PopularMovies = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        setDetallePopulares(data.results);
-        setPaginasPopulares(data.total_pages);
+        setDetalle(data.results);
+        setPaginas(data.total_pages);
       });
   }, [paginaActual]);
 
@@ -41,7 +38,7 @@ const PopularMovies = () => {
       <h3>PELICULAS POPULARES</h3>
        
         <div className="vista-tarjetas">
-          {detallePopulares.map((tarjeta) => (
+          {detalle.map((tarjeta) => (
             <>
             <Tarjeta >
             <div>
@@ -66,7 +63,7 @@ const PopularMovies = () => {
         <button onClick={() => paginaActual===1 ? setPaginaActual(1) : setPaginaActual(paginaActual-1)}><FontAwesomeIcon icon={faAngleLeft} className="icono" /></button>
         <button className="pagina-actual">{paginaActual}</button> 
 
-       { paginaActual !== cantidadPaginasPopulares ?
+       { paginaActual !== paginasTotales ?
          <>
         <button onClick={() => setPaginaActual(paginaActual+1)}>{paginaActual+1}</button>
         <button onClick={() => setPaginaActual(paginaActual+2)}>{paginaActual+2}</button>
@@ -76,8 +73,8 @@ const PopularMovies = () => {
        }
 
         <button>...</button>
-        <button onClick={() => paginaActual === cantidadPaginasPopulares ? setPaginaActual(cantidadPaginasPopulares) : setPaginaActual(paginaActual+1)}> <FontAwesomeIcon icon={faAngleRight} className="icono" /></button>
-        <button onClick={() => setPaginaActual(cantidadPaginasPopulares)}><FontAwesomeIcon icon={faAngleDoubleRight} className="icono" /></button>
+        <button onClick={() => paginaActual === paginasTotales ? setPaginaActual(paginasTotales) : setPaginaActual(paginaActual+1)}> <FontAwesomeIcon icon={faAngleRight} className="icono" /></button>
+        <button onClick={() => setPaginaActual(paginasTotales)}><FontAwesomeIcon icon={faAngleDoubleRight} className="icono" /></button>
         </div>
       </div>
         </SeccionGeneral>

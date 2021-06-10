@@ -16,9 +16,10 @@ const Slider = () => {
   
   const SliderImagen = styled.div`
   position: relative;
+  top: 0px;
 
   .imagen-carrousel {
-    height: 650px;
+    height: 60%;
     img {
         width: 100%;
         height: 100%,
@@ -27,16 +28,17 @@ const Slider = () => {
 
   .texto-carrousel {
     width: 100%;
-    height: 260px;
-    position: relative;
-    bottom: 50px;
+    height: 250px;
+    position: absolute;
+    bottom: -90px;
+    left: 30px;
     color: white;
-    background-color: #23272a;
+    background: linear-gradient(transparent, black);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: flex-start;
-  
+
 
     .carrousel-ranking {
        margin-top: 10px;
@@ -56,19 +58,19 @@ const Slider = () => {
 
        .icono {
         color:blue;
-
        }
-      
     }
 
+
     .carrousel-titulo {
-      font-size: 40px;
+      font-size: 38px;
         font-weight: 700;
         height: 80px;
         margin-top: 0px;
         padding: 0px;
         margin-left: 40px;
         margin-top: 0px;
+        display:flex;
         
     h2 {
       margin: 0px;
@@ -77,7 +79,7 @@ const Slider = () => {
     
     }
     .carrousel-descripcion {
-        font-size: 15px;
+        font-size: 12px;
         font-weight: 300;
         height: 100px;
         margin-left: 40px;
@@ -99,24 +101,26 @@ const Slider = () => {
             <div className="imagen-carrousel"> 
              <img src={`https://image.tmdb.org/t/p/original${preview.backdrop_path}`}></img> 
          </div>
+
          <div className="texto-carrousel">
-           <div className="carrousel-ranking">
+            <div className="carrousel-ranking">
            <p>{preview.vote_average}</p>
-           <div className="iconos">
+                 <div className="iconos">
           {`${preview.vote_average}` >= 2 ?  <FontAwesomeIcon icon={faStar} />   :   <FontAwesomeIcon icon={fasStar}  />}
           {`${preview.vote_average}` >= 4   ?  <FontAwesomeIcon icon={faStar} />   :   <FontAwesomeIcon icon={fasStar} />}
           {`${preview.vote_average}` >= 6  ?  <FontAwesomeIcon icon={faStar} />   :   <FontAwesomeIcon icon={fasStar} />}
           {`${preview.vote_average}` >= 8   ?  <FontAwesomeIcon icon={faStar} />   :   <FontAwesomeIcon icon={fasStar} />}
           {`${preview.vote_average}` >= 10   ?  <FontAwesomeIcon icon={faStar} />   :   <FontAwesomeIcon icon={fasStar} />}
-          </div>
-            
-              </div>
+                 </div>
+             </div>
+
               <div className="carrousel-titulo">
               <h2>{preview.title}</h2>
               </div>
                <div className="carrousel-descripcion">
               <p>{preview.overview}</p>
              </div>
+
          </div>
             </SliderImagen>        
           </>

@@ -12,6 +12,8 @@ import {
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 
+
+
 const VistaResultadoBusqueda = () => {
   const [resultado, setResultado] = useState([]);
   const params = useParams();

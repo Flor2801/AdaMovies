@@ -128,6 +128,7 @@ const VistaDetalleSeries = () => {
                 ></img>
               </Link>
               </div>
+
               <div className="variables-detalle-info-txt">
               <h4>{detalle.name}</h4>
               <p>{detalle.vote_average}</p>
@@ -149,21 +150,17 @@ const VistaDetalleSeries = () => {
                   </>
                 ))}
               </p>
+              <div>
+                 {detalle.homepage && (<a href={`${detalle.homepage}`} target="_blank"> WEBSITE</a>)}
+                 {redes.imdb_id && <a href={`https://www.imdb.com/title/${redes.imdb_id}`} target="_blank"> IMDB </a>}
+                 {redes.twitter_id && <a href={`https://twitter.com/${redes.twitter_id}`} target="_blank"> TWITTER</a>}
+                 {redes.facebook_id && <a href={`https://www.facebook.com/${redes.facebook_id}`} target="_blank"> FACEBOOK</a>}
+                 {redes.instagram_id && <a href={`https://www.instagram.com/${redes.instagram_id}`} target="_blank"> INSTAGRAM</a>}
+               </div>
               </div>
               </div>
 
-              <div>
-                {detalle.homepage && (
-                  <a href={`${detalle.homepage}`} target="_blank">
-                    <p>WEB</p>
-                  </a> 
-                )}
-                {/* {detalle.homepage && (<a href={`${detalle.homepage}`} target="_blank"><FontAwesomeIcon icon={faLink} className="icono" /></a>)}
-                {redes.imdb_id && <a href={`https://www.imdb.com/title/${redes.imdb_id}`} target="_blank"> <FontAwesomeIcon icon={ fabImdb } className="icono" /> </a>}
-                {redes.twitter_id && <a href={`https://twitter.com/${redes.twitter_id}`} target="_blank"> <FontAwesomeIcon icon={ fabTwitter } className="icono" /></a>}
-                {redes.facebook_id && <a href={`https://www.facebook.com/${redes.facebook_id}`} target="_blank"> <FontAwesomeIcon icon={ fabFacebook } className="icono" /></a>}
-                {redes.instagram_id && <a href={`https://www.instagram.com/${redes.instagram_id}`} target="_blank"> <FontAwesomeIcon icon={ fabInstagram } className="icono" /></a>} */}
-              </div>
+             
             </div>
           )}
 
@@ -192,7 +189,7 @@ const VistaDetalleSeries = () => {
               {similares.map((similar) => (
                 <>
                   <Tarjeta>
-                  <Link to={`/peliculas/detalle/${similar.id}`}>
+                  <Link to={`/series/detalle/${similar.id}`}>
                     <img
                       src={`https://image.tmdb.org/t/p/w200${similar.poster_path}`}
                     ></img>

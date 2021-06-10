@@ -19,18 +19,21 @@ const Navegacion = () => {
     align-items: center;
     justify-content: space-between;
     font-family: 'Montserrat', sans-serif;
+    position: relative;
+    z-index: 10;
+
+
+
 
 .logo {
-
-
-
-
   p {
     font-size: 30px;
-    color: white;
+    color: red;
     margin-right: 40px;
     font-weight: 600;
     font-family: 'Righteous', cursive;
+
+
   }
  
 }    
@@ -38,14 +41,27 @@ const Navegacion = () => {
       display: flex;
       margin-left: 15px;
 
+  
+
       .icono {
         color: #fafafa;
         font-size: 70x;
         margin-left: 35px;
         padding: 0px;
         font-size: 20px;
-      
+
+        @media (max-width: 900px) {
+          font-size: 15px;
+       }
+
+       @media (max-width: 900px) {
+        margin-left: 15px;
+     }
       }
+
+      @media (max-width: 900px) {
+        margin-left: 10px;
+     }
     }
 
     P {
@@ -57,8 +73,7 @@ const Navegacion = () => {
     form {
       color: white;
       font-size: 12px;
-      margin-left: -450px;
-  
+
       input {
         background-color: #E9E9E9;
         border-radius: 2px;
@@ -66,6 +81,14 @@ const Navegacion = () => {
         height: 30px;
         display: inline;
         padding-left: 30px;
+
+        @media (max-width: 900px) {
+          width: 150px;
+       }
+      }
+
+      p {
+        margin-right: 2px;
       }
 
       .icono {

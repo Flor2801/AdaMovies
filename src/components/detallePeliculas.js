@@ -155,17 +155,12 @@ const VistaDetallePeliculas = () => {
                       ))}
                     </p>
                     <div>
-                {detalle.homepage && (
-                  <a href={`${detalle.homepage}`} target="_blank">
-                    <p>WEB</p>
-                  </a> 
-                )}
-                {detalle.homepage && (<a href={`${detalle.homepage}`} target="_blank"> WEBSITE</a>)}
-                {redes.imdb_id && <a href={`https://www.imdb.com/title/${redes.imdb_id}`} target="_blank"> IMDB </a>}
-                {redes.twitter_id && <a href={`https://twitter.com/${redes.twitter_id}`} target="_blank"> TWITTER</a>}
-                {redes.facebook_id && <a href={`https://www.facebook.com/${redes.facebook_id}`} target="_blank"> FACEBOOK</a>}
-                {redes.instagram_id && <a href={`https://www.instagram.com/${redes.instagram_id}`} target="_blank"> INSTAGRAM</a>}
-              </div>
+                     {detalle.homepage && (<a href={`${detalle.homepage}`} target="_blank"> WEBSITE</a>)}
+                     {redes.imdb_id && <a href={`https://www.imdb.com/title/${redes.imdb_id}`} target="_blank"> IMDB </a>}
+                     {redes.twitter_id && <a href={`https://twitter.com/${redes.twitter_id}`} target="_blank"> TWITTER</a>}
+                     {redes.facebook_id && <a href={`https://www.facebook.com/${redes.facebook_id}`} target="_blank"> FACEBOOK</a>}
+                     {redes.instagram_id && <a href={`https://www.instagram.com/${redes.instagram_id}`} target="_blank"> INSTAGRAM</a>}
+                    </div>
                   </div>
                 </div>
               </div>

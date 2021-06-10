@@ -13,15 +13,19 @@ const Home = () => {
   const peliculas = useFetch(TRENDING_MOVIES);
   const series = useFetch(TRENDING_SERIES);
 
-  const Espacio = styled.div`
-  height: 100px;
+
+  const SliderContenedor = styled.div`
+  position: relative;
+  top: -150px;
+  }
   `
 
   return (
     <>
-
+      <SliderContenedor>
       <Slider />
-      <Espacio></Espacio>
+      </SliderContenedor>
+    
       <Section item={peliculas} title="PELICULAS QUE SON TENDENCIA" url="/peliculas/tendencias" tipo="Peliculas" />
       <Section item={series} title="SERIES QUE SON TENDENCIA" url="/series/tendencias" tipo="Series"/>
 
