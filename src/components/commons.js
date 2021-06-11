@@ -1,5 +1,64 @@
 import styled from "styled-components";
 
+
+export const BuscadorHome = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+.selector-peliculas-series {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  .icono {
+    color: #fafafa;
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+}
+
+
+form {
+  color: white;
+  font-size: 20px;
+
+  input {
+    background-color: #e9e9e9;
+    border-style: none;
+    width: 300px;
+    height: 40px;
+    display: inline;
+    padding-left: 30px;
+
+  }
+
+  .icono {
+    position: relative;
+    left: 30px;
+    color: grey;
+    font-size: 20px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 500px) {
+  display: none;
+}
+`
+
 export const Seccion = styled.div`
   width: 90%;
   margin: 20px 0px 0px 50px;
@@ -85,6 +144,7 @@ export const SeccionGeneral = styled.section`
     text-decoration: none;
     color: white;
     margin-bottom: 10px;
+
   }
 
   .vista-tarjetas {
@@ -280,8 +340,8 @@ export const PieDePagina = styled.div`
     }
 
     @media (max-width: 500px) {
-      font-size: 10px;
-      max-width: 250px;
+      font-size: 12px;
+      max-width: 230px;
     }
   }
 `;

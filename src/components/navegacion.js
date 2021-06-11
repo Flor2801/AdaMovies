@@ -26,22 +26,26 @@ const BarraNavegacion = styled.div`
       font-weight: 600;
       font-family: "Righteous", cursive;
 
-      @media (max-width: 550px) {
+      @media (max-width: 700px) {
         font-size: 20px;
+      }
+
+      @media (max-width: 500px) {
+        font-size: 30px;
         margin-right: 10px;
-       }
+      }
     }
   }
+
   .iconos {
     display: flex;
     margin-left: 15px;
 
     .icono {
       color: #fafafa;
-      font-size: 70x;
+      font-size: 25px;
       margin-left: 35px;
       padding: 0px;
-      font-size: 20px;
 
       @media (max-width: 900px) {
         font-size: 15px;
@@ -50,10 +54,15 @@ const BarraNavegacion = styled.div`
       @media (max-width: 900px) {
         margin-left: 15px;
       }
+
     }
 
     @media (max-width: 900px) {
       margin-left: 10px;
+    }
+
+    @media (max-width: 500px) {
+      display: none;
     }
   }
 
@@ -78,9 +87,9 @@ const BarraNavegacion = styled.div`
       @media (max-width: 900px) {
         width: 150px;
       }
-      
-      @media (max-width: 550px) {
-       display: none;
+
+      @media (max-width: 500px) {
+        display: none;
       }
     }
 
@@ -88,9 +97,8 @@ const BarraNavegacion = styled.div`
       margin-right: 2px;
 
       @media (max-width: 650px) {
-      display: none;
+        display: none;
       }
- 
     }
 
     .icono {
@@ -98,10 +106,14 @@ const BarraNavegacion = styled.div`
       left: 25px;
       color: grey;
       font-size: 15px;
-      @media (max-width: 550px) {
+      @media (max-width: 500px) {
         display: none;
-       }
+      }
     }
+  }
+
+  @media (max-width: 500px) {
+    justify-content: center;
   }
 `;
 
@@ -143,7 +155,7 @@ const Navegacion = () => {
         <div>
           <form onSubmit={mostrarResultados}>
             <p>BÚSQUEDA</p>
-            <FontAwesomeIcon icon={faSearch} className="icono"/>
+            <FontAwesomeIcon icon={faSearch} className="icono" />
             <input
               type="text"
               value={valorDelInput}

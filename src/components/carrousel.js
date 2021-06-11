@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { TRENDING_MOVIES } from "../utils/variables.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
@@ -12,14 +13,12 @@ const ContenedorSlider = styled.div`
   position: relative;
   top: 0px;
 
-  @media (max-width: 650px) {
-    position: relative;
-    top: 100px;
-  }
 
   @media (max-width: 550px) {
-    position: relative;
-    top: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    heigth: 500px;
   }
 `;
 
@@ -50,18 +49,17 @@ const SliderImagen = styled.div`
     height: 250px;
     position: absolute;
     bottom: 0px;
-    background-color: red;
     left: 30px;
     color: white;
     background: linear-gradient(transparent, black);
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: flex-start;
 
     .carrousel-ranking {
       margin-top: 0px;
-      height: 20px;
+  
       margin-left: 40px;
 
       .iconos {
@@ -81,9 +79,8 @@ const SliderImagen = styled.div`
     }
 
     .carrousel-titulo {
-      font-size: 38px;
+      font-size: 35px;
       font-weight: 700;
-      height: 80px;
       margin-top: 0px;
       padding: 0px;
       margin-left: 40px;
@@ -93,20 +90,22 @@ const SliderImagen = styled.div`
       h2 {
         margin: 0px;
       }
-      @media (max-width: 750px) {
-        font-size: 28px;
+      @media (max-width: 950px) {
+        font-size: 25px;
       }
       @media (max-width: 600px) {
         font-size: 20px;
       }
-      @media (max-width: 400px) {
-        font-size: 12px;
+      @media (max-width: 450px) {
+        font-size: 13px;
       }
+    
+
+  
     }
     .carrousel-descripcion {
       font-size: 16px;
       font-weight: 300;
-      height: 130px;
       margin-left: 40px;
       max-width: 900px;
 
@@ -127,38 +126,45 @@ const SliderImagen = styled.div`
       }
     }
 
-
     @media (max-width: 750px) {
       height: 150px;
       width: 100%;
+      left: 10px;
+      bottom: 0px;
+
     }
 
     @media (max-width: 450px) {
       position: absolute;
-      bottom: -20px;
       height: 100px;
+      left: 3px;
+      max-width: 300px;
 
     }
+
+
     
   }
   }
 `;
-
 
 const Carrousel = () => {
   const peliculasCarrousel = useFetch(TRENDING_MOVIES);
   const arrayCarrousel = peliculasCarrousel.slice(0, 5);
   return (
     <>
+    <ContenedorSlider>
       <Carousel>
         {arrayCarrousel.map((preview) => (
           <>
             <SliderImagen>
               <div className="imagen-carrousel">
-
-              <Link to={`/peliculas/detalle/${tarjeta.id}`}>  <img
-                  src={`https://image.tmdb.org/t/p/original${preview.backdrop_path}`}
-                ></img></Link>
+                <Link to={`/peliculas/detalle/${preview.id}`}>
+                  {" "}
+                  <img
+                    src={`https://image.tmdb.org/t/p/original${preview.backdrop_path}`}
+                  ></img>
+                </Link>
               </div>
               <div className="texto-carrousel">
                 <div className="carrousel-ranking">
@@ -203,6 +209,7 @@ const Carrousel = () => {
           </>
         ))}
       </Carousel>
+      </ContenedorSlider>
     </>
   );
 };
