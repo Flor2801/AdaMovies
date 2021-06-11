@@ -62,8 +62,8 @@ const Home = () => {
       </SliderContenedor>
 
       <BuscadorHome>
-        <div className="herramientas-buscador-home">
-          <div>
+        <div className="navegacion-responsive">
+          <div className="buscador-home-responsive">
             <form onSubmit={mostrarResultados}>
               <FontAwesomeIcon icon={faSearch} className="icono" />
               <input
@@ -75,7 +75,7 @@ const Home = () => {
             </form>
           </div>
 
-          <div className="selector-peliculas-series">
+          <div className="selector-responsive">
             <Link to="/peliculas">
               {" "}
               <FontAwesomeIcon icon={faVideo} className="icono" />{" "}
