@@ -23,6 +23,7 @@ const VistaDetalleSeries = () => {
   const [vistaInfo, setVistaInfo] = useState(true);
   const [vistaReparto, setVistaReparto] = useState(false);
   const [vistaSimilares, setVistaSimilares] = useState(false);
+  const [imagenes, setImagenes] = useState([]);
 
   console.log(detalle);
   console.log(generos);
@@ -30,28 +31,19 @@ const VistaDetalleSeries = () => {
   const verVistaInfo = () => {
     setVistaInfo(true);
     setVistaReparto(false);
-    setVistaEpisodios(false);
     setVistaSimilares(false);
   };
 
   const verVistaReparto = () => {
     setVistaInfo(false);
     setVistaReparto(true);
-    setVistaEpisodios(false);
     setVistaSimilares(false);
   };
 
-  const verVistaEpisodios = () => {
-    setVistaInfo(false);
-    setVistaReparto(false);
-    setVistaEpisodios(true);
-    setVistaSimilares(false);
-  };
 
   const verVistaSimilares = () => {
     setVistaInfo(false);
     setVistaReparto(false);
-    setVistaEpisodios(false);
     setVistaSimilares(true);
   };
 
