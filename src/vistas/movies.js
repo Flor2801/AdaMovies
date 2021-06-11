@@ -4,13 +4,17 @@ import {POPULAR_MOVIES, TOP_RATED_MOVIES, NOW_PLAYING_MOVIES, UP_COMING_MOVIES,}
 import Section from "../components/section";
 
 
+// Vista general de Peliculas
 
 const Peliculas = () => {
+  
+// Llamamos a la información 
   const populares = useFetch(POPULAR_MOVIES);
   const mejores_criticas = useFetch(TOP_RATED_MOVIES);
   const estrenos = useFetch(UP_COMING_MOVIES);
   const en_cines = useFetch(NOW_PLAYING_MOVIES);
 
+// Se muestra la informacion en secciones
   return (
     <>
       <Section item={populares} title="Películas Populares" url="/peliculas/populares" tipo="Peliculas"/>

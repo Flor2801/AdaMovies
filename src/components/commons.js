@@ -1,69 +1,59 @@
 import styled from "styled-components";
 
-
 export const BuscadorHome = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-
-.navegacion-responsive{
-  width: 90%;
-  margin-top: 20px;
-
-
-.selector-responsive {
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-
-  .icono {
-    color: #fafafa;
-    font-size: 30px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-}
-
-
-.buscador-home-responsive {
-  width: 100%;
-
-form {
-  display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  color: white;
-  font-size: 20px;
+  align-items: center;
 
+  .navegacion-responsive {
+    width: 90%;
+    margin-top: 20px;
 
-  input {
-    background-color: #e9e9e9;
-    border-style: none;
-    height: 40px;
-    width: 70%;
+    .selector-responsive {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+
+      .icono {
+        color: #fafafa;
+        font-size: 30px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
+    }
+
+    .buscador-home-responsive {
+      width: 100%;
+
+      form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 20px;
+
+        input {
+          background-color: #e9e9e9;
+          border-style: none;
+          height: 40px;
+          width: 70%;
+        }
+
+        .icono {
+          position: relative;
+          right: 10px;
+          color: grey;
+          font-size: 20px;
+        }
+      }
+    }
   }
 
-  .icono {
-    position: relative;
-    right: 10px;
-    color: grey;
-    font-size: 20px;
+  @media (min-width: 500px) {
+    display: none;
   }
-
-
-}
-
-
-}
-
-
-}
-
-@media (min-width: 500px) {
-  display: none;
-}
-`
+`;
 
 export const Seccion = styled.div`
   width: 90%;
@@ -150,7 +140,6 @@ export const SeccionGeneral = styled.section`
     text-decoration: none;
     color: white;
     margin-bottom: 10px;
-
   }
 
   .vista-tarjetas {

@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+
+// Hook custom para generar el fetch 
 const useFetch = (url) => {
   const [content, setContent] = useState([]);
   

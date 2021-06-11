@@ -1,4 +1,5 @@
 
+//Variables con ruta al fetch correspondiente para la API Movies DataBase
 
 const URL_BASE = "https://api.themoviedb.org/3/movie/"
 const API_KEY = '8cd74c1ce651a04254aaab08ea9e958'

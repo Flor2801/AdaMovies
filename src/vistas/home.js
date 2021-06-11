@@ -13,6 +13,8 @@ import { faVideo } from "@fortawesome/free-solid-svg-icons";
 import { faTv } from "@fortawesome/free-solid-svg-icons";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
+
+// 
 const Home = () => {
   const peliculas = useFetch(TRENDING_MOVIES);
   const series = useFetch(TRENDING_SERIES);

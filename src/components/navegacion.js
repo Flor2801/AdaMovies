@@ -43,7 +43,7 @@ const BarraNavegacion = styled.div`
 
     .icono {
       color: #fafafa;
-      font-size: 25px;
+      font-size: 30px;
       margin-left: 35px;
       padding: 0px;
 
@@ -54,15 +54,32 @@ const BarraNavegacion = styled.div`
       @media (max-width: 900px) {
         margin-left: 15px;
       }
-
     }
 
     @media (max-width: 900px) {
       margin-left: 10px;
     }
 
-    @media (max-width: 500px) {
-      display: none;
+    #icono-home {
+      @media (max-width: 500px) {
+        color: red;
+        font-size: 20px;
+        position: absolute;
+        left: 10px;
+        top: 30px;
+      }
+    }
+
+    #icono-peliculas {
+      @media (max-width: 500px) {
+        display: none;
+      }
+    }
+
+    #icono-series {
+      @media (max-width: 500px) {
+        display: none;
+      }
     }
   }
 
@@ -141,15 +158,27 @@ const Navegacion = () => {
         <div className="iconos">
           <Link to="/">
             {" "}
-            <FontAwesomeIcon icon={faHome} className="icono" />{" "}
+            <FontAwesomeIcon
+              icon={faHome}
+              className="icono"
+              id="icono-home"
+            />{" "}
           </Link>
           <Link to="/peliculas">
             {" "}
-            <FontAwesomeIcon icon={faVideo} className="icono" />{" "}
+            <FontAwesomeIcon
+              icon={faVideo}
+              className="icono"
+              id="icono-peliculas"
+            />{" "}
           </Link>
           <Link to="/series">
             {" "}
-            <FontAwesomeIcon icon={faTv} className="icono" />{" "}
+            <FontAwesomeIcon
+              icon={faTv}
+              className="icono"
+              id="icono-series"
+            />{" "}
           </Link>
         </div>
         <div>
