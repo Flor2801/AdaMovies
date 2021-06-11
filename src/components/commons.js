@@ -2,12 +2,10 @@ import styled from "styled-components";
 
 export const Seccion = styled.div`
   width: 90%;
-  margin: 30px 0px 0px 50px;
+  margin: 20px 0px 0px 50px;
   font-family: "Montserrat", sans-serif;
   display: flex;
   flex-wrap: wrap;
-
-
 
   h3 {
     font-size: 25px;
@@ -22,15 +20,14 @@ export const Seccion = styled.div`
     text-decoration: none;
   }
 
-    
   @media (max-width: 900px) {
     justify-content: center;
     align-items: center;
-   }
+  }
 
-   @media (max-width: 500px) {
+  @media (max-width: 500px) {
     margin: 30px 0px 0px 30px;
-   }
+  }
 `;
 
 export const Container = styled.div`
@@ -39,8 +36,6 @@ export const Container = styled.div`
   justify-content: center;
   align-items: flex-start;
   margin: 0px 0px 0px 0px;
-
-
 `;
 
 export const Tarjeta = styled.div`
@@ -49,7 +44,6 @@ export const Tarjeta = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   margin: 40px 30px 10px 0px;
-
 
   .titulo {
     height: 40px;
@@ -71,14 +65,8 @@ export const Tarjeta = styled.div`
 
   @media (max-width: 650px) {
     margin: 40px 20px 10px 0px;
-   }
-
-   
-
-
+  }
 `;
-
-
 
 export const SeccionGeneral = styled.section`
   display: flex;
@@ -87,8 +75,8 @@ export const SeccionGeneral = styled.section`
   font-family: "Montserrat", sans-serif;
 
   @media (max-width: 900px) {
-   justify-content: center;
-   align-items: center;
+    justify-content: center;
+    align-items: center;
   }
 
   h3 {
@@ -97,10 +85,6 @@ export const SeccionGeneral = styled.section`
     text-decoration: none;
     color: white;
     margin-bottom: 10px;
-
-  
-
-
   }
 
   .vista-tarjetas {
@@ -248,17 +232,14 @@ export const InformacionDetalle = styled.div`
       }
     }
 
-   .variables-detalle-info-redes {
-     margin-top: 30px;
-    
-     .icono {
-      
-      font-size: 20px;
-      color: white;
-    
-     }
-   
-   }
+    .variables-detalle-info-redes {
+      margin-top: 30px;
+
+      .icono {
+        font-size: 20px;
+        color: white;
+      }
+    }
   }
 `;
 
@@ -281,8 +262,6 @@ export const PieDePagina = styled.div`
   position: relative;
   bottom: 0px;
 
-
-
   p {
     color: white;
     font-size: 15px;
@@ -290,22 +269,19 @@ export const PieDePagina = styled.div`
     font-family: "Montserrat", sans-serif;
 
     @media (max-width: 900px) {
-     margin: 0px 20px;
-     max-width: 500px;
-     text-align: center;
-     }
+      margin: 0px 20px;
+      max-width: 500px;
+      text-align: center;
+    }
 
-     @media (max-width: 600px) {
+    @media (max-width: 600px) {
       font-size: 13px;
       max-width: 300px;
-      }
+    }
 
-      @media (max-width: 500px) {
-        font-size: 10px;
-        max-width: 250px;
-        }
+    @media (max-width: 500px) {
+      font-size: 10px;
+      max-width: 250px;
+    }
   }
-
-   
-  
 `;
