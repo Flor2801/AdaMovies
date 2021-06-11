@@ -7,11 +7,7 @@ export const Seccion = styled.div`
   display: flex;
   flex-wrap: wrap;
 
-  
-  @media (max-width: 900px) {
-    justify-content: center;
-    align-items: center;
-   }
+
 
   h3 {
     font-size: 25px;
@@ -25,6 +21,16 @@ export const Seccion = styled.div`
   a {
     text-decoration: none;
   }
+
+    
+  @media (max-width: 900px) {
+    justify-content: center;
+    align-items: center;
+   }
+
+   @media (max-width: 500px) {
+    margin: 30px 0px 0px 30px;
+   }
 `;
 
 export const Container = styled.div`
@@ -33,6 +39,8 @@ export const Container = styled.div`
   justify-content: center;
   align-items: flex-start;
   margin: 0px 0px 0px 0px;
+
+
 `;
 
 export const Tarjeta = styled.div`
@@ -60,7 +68,17 @@ export const Tarjeta = styled.div`
     height: 300px;
     bacgroundcolor: white;
   }
+
+  @media (max-width: 650px) {
+    margin: 40px 20px 10px 0px;
+   }
+
+   
+
+
 `;
+
+
 
 export const SeccionGeneral = styled.section`
   display: flex;
@@ -279,16 +297,12 @@ export const PieDePagina = styled.div`
 
      @media (max-width: 600px) {
       font-size: 13px;
-      margin: 0px 20px;
       max-width: 300px;
-      text-align: center;
       }
 
-      @media (max-width: 300px) {
-        font-size: 13px;
-        margin: 0px 20px;
-        max-width: 200px;
-        text-align: center;
+      @media (max-width: 500px) {
+        font-size: 10px;
+        max-width: 250px;
         }
   }
 

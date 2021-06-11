@@ -2,9 +2,6 @@ import { React } from "react";
 import useFetch from "../hooks.js/useFetch";
 import {POPULAR_SERIES, TOP_RATED_SERIES,ON_THE_AIR_SERIES } from "../utils/variables.js";
 import Section from "../components/section";
-import PopularSeries from '../vistas/vistas-secundarias/popular-series'
-import OnAirSeries from '../vistas/vistas-secundarias/on-the-air-series'
-import TopRatedSeries from '../vistas/vistas-secundarias/top-rated-series'
 
 
 

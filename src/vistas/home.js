@@ -4,8 +4,7 @@ import Section from "../components/section";
 import useFetch from "../hooks.js/useFetch";
 import Slider from "../components/carrousel";
 import styled from "styled-components";
-import GlobalStyle from "../components/globalStyles.js";
-
+import Carrousel from "../components/carrousel";
 
 
 
@@ -16,14 +15,31 @@ const Home = () => {
 
   const SliderContenedor = styled.div`
   position: relative;
-  top: -150px;
+  top: -120px;
+
+  @media (max-width: 950px) {
+    top: -100px;
   }
+
+  @media (max-width: 850px) {
+    top: -60px;
+  }
+
+  @media (max-width: 550px) {
+    top: -40px;
+  }
+
+  @media (max-width: 550px) {
+    top: -30px;
+  }
+  
   `
 
   return (
     <>
       <SliderContenedor>
-      <Slider />
+      {/* <Slider /> */}
+      <Carrousel />
       </SliderContenedor>
     
       <Section item={peliculas} title="PELICULAS QUE SON TENDENCIA" url="/peliculas/tendencias" tipo="Peliculas" />

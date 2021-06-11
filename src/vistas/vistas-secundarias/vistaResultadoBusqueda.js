@@ -3,7 +3,7 @@ import { Link, useParams} from "react-router-dom";
 import { SeccionGeneral } from "../../components/commons.js";
 import { Tarjeta } from "../../components/commons.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDoubleRight, faAngleDoubleLeft} from "@fortawesome/free-solid-svg-icons";
+import { faAngleDoubleRight, faAngleDoubleLeft } from "@fortawesome/free-solid-svg-icons";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 

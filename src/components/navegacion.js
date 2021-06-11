@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import { Link, useHistory, useParams, useLocation } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faVideo } from "@fortawesome/free-solid-svg-icons";
@@ -25,6 +25,11 @@ const BarraNavegacion = styled.div`
       margin-right: 40px;
       font-weight: 600;
       font-family: "Righteous", cursive;
+
+      @media (max-width: 550px) {
+        font-size: 20px;
+        margin-right: 10px;
+       }
     }
   }
   .iconos {
@@ -73,10 +78,19 @@ const BarraNavegacion = styled.div`
       @media (max-width: 900px) {
         width: 150px;
       }
+      
+      @media (max-width: 550px) {
+       display: none;
+      }
     }
 
     p {
       margin-right: 2px;
+
+      @media (max-width: 650px) {
+      display: none;
+      }
+ 
     }
 
     .icono {
@@ -84,6 +98,9 @@ const BarraNavegacion = styled.div`
       left: 25px;
       color: grey;
       font-size: 15px;
+      @media (max-width: 550px) {
+        display: none;
+       }
     }
   }
 `;
@@ -126,7 +143,7 @@ const Navegacion = () => {
         <div>
           <form onSubmit={mostrarResultados}>
             <p>BÚSQUEDA</p>
-            <FontAwesomeIcon icon={faSearch} className="icono" />
+            <FontAwesomeIcon icon={faSearch} className="icono"/>
             <input
               type="text"
               value={valorDelInput}

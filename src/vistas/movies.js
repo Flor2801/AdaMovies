@@ -5,7 +5,6 @@ import Section from "../components/section";
 
 
 
-
 const Peliculas = () => {
   const populares = useFetch(POPULAR_MOVIES);
   const mejores_criticas = useFetch(TOP_RATED_MOVIES);
