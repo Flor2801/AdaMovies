@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { faStar as fasStar } from "@fortawesome/free-regular-svg-icons";
 import useFetch from "../hooks.js/useFetch";
-import AwesomeSlider from "react-awesome-slider";
 import "react-awesome-slider/dist/styles.css";
 import styled from "styled-components";
 import Carousel from "nuka-carousel";
@@ -156,9 +155,10 @@ const Carrousel = () => {
           <>
             <SliderImagen>
               <div className="imagen-carrousel">
-                <img
+
+              <Link to={`/peliculas/detalle/${tarjeta.id}`}>  <img
                   src={`https://image.tmdb.org/t/p/original${preview.backdrop_path}`}
-                ></img>
+                ></img></Link>
               </div>
               <div className="texto-carrousel">
                 <div className="carrousel-ranking">
