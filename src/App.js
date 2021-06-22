@@ -54,6 +54,7 @@ function App() {
         <Route  exact path={`/peliculas/detalle/:id`} component={VistaDetallePeliculas}/>
         <Route  exact path={`/series/detalle/:id`} component={VistaDetalleSeries}/>
 
+{/* ves dos veces las peliculas cuando buscas porque aqui tenes dos rutas iguales y no hay switch */}
         <Route  exact path={`/busqueda/:query`} component={VistaResultadosBusqueda}/>
         <Route  exact path={`/busqueda/:query`} component={VistaResultadosBusqueda}/>
 
