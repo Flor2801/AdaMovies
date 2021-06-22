@@ -18,6 +18,7 @@ const VistaResultadoBusqueda = () => {
 
 
   useEffect(() => {
+  //  si sacas el ' al final del fetch (entre } y `) tu paginado vuelve a funcionar!
     fetch(
       `https://api.themoviedb.org/3/search/multi?api_key=6a93319b2d78795675b8bd9aa0965a95&
     language=en-US&query=${params.query}&page=${paginaActual}'`
@@ -36,6 +37,7 @@ const VistaResultadoBusqueda = () => {
         <h3>RESULTADOS BUSQUEDA</h3>
         <div>
           <div className="vista-tarjetas">
+          {/* no es necesario en el map el <> porque retornas una sola cosa */}
             {resultado.map((resultado) => (
               <>
                 <Tarjeta>

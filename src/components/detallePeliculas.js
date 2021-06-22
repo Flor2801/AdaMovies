@@ -28,6 +28,14 @@ const VistaDetallePeliculas = () => {
   const [vistaSimilares, setVistaSimilares] = useState(false);
 
 
+// Esto parece ser mas complicado de lo que debiera. 
+// Que tal si tenemos un solo estado, vista, que sea un string y que empiece como info?
+
+// const [vista, setVista] = useState("info");
+
+// Cuando el usuario hace click en videos, por ejemplo, ejecutamos setVista("video")
+// Y en el jsx podemos decir: vista === "video" &&
+
 
   const verVistaInfo = () => {
     setVistaInfo(true);
